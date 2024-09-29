@@ -37,7 +37,7 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 
-	huaweicloud "chengxiangdong.com/crossplane/provider-huaweicloud/internal/controller"
+	huaweicloud "github.com/chengxiangdong/provider-huaweicloud/internal/controller"
 
 	"github.com/chengxiangdong/provider-huaweicloud/apis"
 	"github.com/chengxiangdong/provider-huaweicloud/apis/v1alpha1"

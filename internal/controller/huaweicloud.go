@@ -20,8 +20,6 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/controller"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/chengxiangdong/provider-huaweicloud/internal/controller/mytype"
-
 	"github.com/chengxiangdong/provider-huaweicloud/internal/controller/config"
 )
 
@@ -30,7 +28,6 @@ import (
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
 		config.Setup,
-		mytype.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
 			return err
