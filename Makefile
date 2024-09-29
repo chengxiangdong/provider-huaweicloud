@@ -36,10 +36,10 @@ IMAGES = provider-huaweicloud
 # ====================================================================================
 # Setup XPKG
 
-XPKG_REG_ORGS ?= xpkg.upbound.io/chexd
+XPKG_REG_ORGS ?= xpkg.upbound.io/chengxiangdong
 # NOTE(hasheddan): skip promoting on xpkg.upbound.io as channel tags are
 # inferred.
-XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/chexd
+XPKG_REG_ORGS_NO_PROMOTE ?= xpkg.upbound.io/chengxiangdong
 XPKGS = provider-huaweicloud
 -include build/makelib/xpkg.mk
 
