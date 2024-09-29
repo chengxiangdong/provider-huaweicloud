@@ -1,4 +1,4 @@
-module github.com/crossplane/provider-template
+module github.com/chengxiangdong/provider-huaweicloud
 
 go 1.21
 
