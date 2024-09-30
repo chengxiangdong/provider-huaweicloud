@@ -251,5 +251,4 @@ jobs:
           UP_USER: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR }}
           UP_PASSWORD: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}
         run: |
-          make up.login
           make publish BRANCH_NAME=${GITHUB_REF##*/}
