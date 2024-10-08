@@ -245,7 +245,7 @@ jobs:
       - detect-noop
       - report-breaking-changes
 #      - lint
-      - check-diff
+#      - check-diff
 #      - unit-tests
 #      - local-deploy
     if: needs.detect-noop.outputs.noop != 'true'
