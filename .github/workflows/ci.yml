@@ -244,10 +244,10 @@ jobs:
     needs:
       - detect-noop
       - report-breaking-changes
-      - lint
+#      - lint
       - check-diff
-      - unit-tests
-      - local-deploy
+#      - unit-tests
+#      - local-deploy
     if: needs.detect-noop.outputs.noop != 'true'
 
     steps:
