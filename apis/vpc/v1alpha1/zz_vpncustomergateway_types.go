@@ -16,14 +16,11 @@ import (
 type VPNCustomerGatewayInitParameters struct {
 
 	// Name of the customer gateway. The length of character is limited to 1-60.
-	// Name of the customer gateway. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Public IP of the customer gateway.
-	// Public IP of the customer gateway.
 	PublicIPAddress *string `json:"publicIpAddress,omitempty" tf:"public_ip_address,omitempty"`
 
-	// A list of tags used to associate different resources.
 	// A list of tags used to associate different resources.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -32,21 +29,16 @@ type VPNCustomerGatewayInitParameters struct {
 type VPNCustomerGatewayObservation struct {
 
 	// Create time of the customer gateway.
-	// Create time of the customer gateway.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Name of the customer gateway. The length of character is limited to 1-60.
 	// Name of the customer gateway. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Public IP of the customer gateway.
-	// Public IP of the customer gateway.
 	PublicIPAddress *string `json:"publicIpAddress,omitempty" tf:"public_ip_address,omitempty"`
 
-	// A list of tags used to associate different resources.
 	// A list of tags used to associate different resources.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -55,16 +47,13 @@ type VPNCustomerGatewayObservation struct {
 type VPNCustomerGatewayParameters struct {
 
 	// Name of the customer gateway. The length of character is limited to 1-60.
-	// Name of the customer gateway. The length of character is limited to 1-60.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Public IP of the customer gateway.
-	// Public IP of the customer gateway.
 	// +kubebuilder:validation:Optional
 	PublicIPAddress *string `json:"publicIpAddress,omitempty" tf:"public_ip_address,omitempty"`
 
-	// A list of tags used to associate different resources.
 	// A list of tags used to associate different resources.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
@@ -98,7 +87,7 @@ type VPNCustomerGatewayStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPNCustomerGateway is the Schema for the VPNCustomerGateways API. Provides a resource to create a VPN customer gateway.
+// VPNCustomerGateway is the Schema for the VPNCustomerGateways API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

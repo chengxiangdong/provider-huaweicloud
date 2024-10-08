@@ -16,38 +16,29 @@ import (
 type VPNSSLServerInitParameters struct {
 
 	// need compressed. Default value: False.
-	// need compressed. Default value: False.
 	Compress *bool `json:"compress,omitempty" tf:"compress,omitempty"`
 
-	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
 	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
 	EncryptAlgorithm *string `json:"encryptAlgorithm,omitempty" tf:"encrypt_algorithm,omitempty"`
 
 	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
-	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
 	IntegrityAlgorithm *string `json:"integrityAlgorithm,omitempty" tf:"integrity_algorithm,omitempty"`
 
-	// List of local CIDR.
 	// List of local CIDR.
 	LocalAddress []*string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
 	// Remote CIDR for client.
-	// Remote CIDR for client.
 	RemoteAddress *string `json:"remoteAddress,omitempty" tf:"remote_address,omitempty"`
 
-	// The port of ssl vpn. Default value: 1194.
 	// The port of ssl vpn. Default value: 1194.
 	SSLVPNPort *float64 `json:"sslVpnPort,omitempty" tf:"ssl_vpn_port,omitempty"`
 
 	// The protocol of ssl vpn. Default value: UDP.
-	// The protocol of ssl vpn. Default value: UDP.
 	SSLVPNProtocol *string `json:"sslVpnProtocol,omitempty" tf:"ssl_vpn_protocol,omitempty"`
 
 	// The name of ssl vpn server to be created.
-	// The name of ssl vpn server to be created.
 	SSLVPNServerName *string `json:"sslVpnServerName,omitempty" tf:"ssl_vpn_server_name,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	// +crossplane:generate:reference:type=VPNGateway
 	VPNGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id,omitempty"`
@@ -64,41 +55,31 @@ type VPNSSLServerInitParameters struct {
 type VPNSSLServerObservation struct {
 
 	// need compressed. Default value: False.
-	// need compressed. Default value: False.
 	Compress *bool `json:"compress,omitempty" tf:"compress,omitempty"`
 
 	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
-	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
 	EncryptAlgorithm *string `json:"encryptAlgorithm,omitempty" tf:"encrypt_algorithm,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
 	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
 	IntegrityAlgorithm *string `json:"integrityAlgorithm,omitempty" tf:"integrity_algorithm,omitempty"`
 
 	// List of local CIDR.
-	// List of local CIDR.
 	LocalAddress []*string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
-	// Remote CIDR for client.
 	// Remote CIDR for client.
 	RemoteAddress *string `json:"remoteAddress,omitempty" tf:"remote_address,omitempty"`
 
 	// The port of ssl vpn. Default value: 1194.
-	// The port of ssl vpn. Default value: 1194.
 	SSLVPNPort *float64 `json:"sslVpnPort,omitempty" tf:"ssl_vpn_port,omitempty"`
 
-	// The protocol of ssl vpn. Default value: UDP.
 	// The protocol of ssl vpn. Default value: UDP.
 	SSLVPNProtocol *string `json:"sslVpnProtocol,omitempty" tf:"ssl_vpn_protocol,omitempty"`
 
 	// The name of ssl vpn server to be created.
-	// The name of ssl vpn server to be created.
 	SSLVPNServerName *string `json:"sslVpnServerName,omitempty" tf:"ssl_vpn_server_name,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	VPNGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id,omitempty"`
 }
@@ -106,46 +87,37 @@ type VPNSSLServerObservation struct {
 type VPNSSLServerParameters struct {
 
 	// need compressed. Default value: False.
-	// need compressed. Default value: False.
 	// +kubebuilder:validation:Optional
 	Compress *bool `json:"compress,omitempty" tf:"compress,omitempty"`
 
-	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
 	// The encrypt algorithm. Valid values: AES-128-CBC, AES-192-CBC, AES-256-CBC, NONE.Default value: NONE.
 	// +kubebuilder:validation:Optional
 	EncryptAlgorithm *string `json:"encryptAlgorithm,omitempty" tf:"encrypt_algorithm,omitempty"`
 
 	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
-	// The integrity algorithm. Valid values: SHA1, MD5 and NONE. Default value: NONE.
 	// +kubebuilder:validation:Optional
 	IntegrityAlgorithm *string `json:"integrityAlgorithm,omitempty" tf:"integrity_algorithm,omitempty"`
 
-	// List of local CIDR.
 	// List of local CIDR.
 	// +kubebuilder:validation:Optional
 	LocalAddress []*string `json:"localAddress,omitempty" tf:"local_address,omitempty"`
 
 	// Remote CIDR for client.
-	// Remote CIDR for client.
 	// +kubebuilder:validation:Optional
 	RemoteAddress *string `json:"remoteAddress,omitempty" tf:"remote_address,omitempty"`
 
-	// The port of ssl vpn. Default value: 1194.
 	// The port of ssl vpn. Default value: 1194.
 	// +kubebuilder:validation:Optional
 	SSLVPNPort *float64 `json:"sslVpnPort,omitempty" tf:"ssl_vpn_port,omitempty"`
 
 	// The protocol of ssl vpn. Default value: UDP.
-	// The protocol of ssl vpn. Default value: UDP.
 	// +kubebuilder:validation:Optional
 	SSLVPNProtocol *string `json:"sslVpnProtocol,omitempty" tf:"ssl_vpn_protocol,omitempty"`
 
 	// The name of ssl vpn server to be created.
-	// The name of ssl vpn server to be created.
 	// +kubebuilder:validation:Optional
 	SSLVPNServerName *string `json:"sslVpnServerName,omitempty" tf:"ssl_vpn_server_name,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	// +crossplane:generate:reference:type=VPNGateway
 	// +kubebuilder:validation:Optional
@@ -187,7 +159,7 @@ type VPNSSLServerStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPNSSLServer is the Schema for the VPNSSLServers API. Provide a resource to create a VPN SSL Server.
+// VPNSSLServer is the Schema for the VPNSSLServers API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

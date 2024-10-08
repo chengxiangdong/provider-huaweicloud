@@ -16,7 +16,6 @@ import (
 type EipAssociationInitParameters struct {
 
 	// The ID of EIP.
-	// The ID of EIP.
 	// +crossplane:generate:reference:type=Eip
 	EIPID *string `json:"eipId,omitempty" tf:"eip_id,omitempty"`
 
@@ -28,15 +27,12 @@ type EipAssociationInitParameters struct {
 	// +kubebuilder:validation:Optional
 	EIPIDSelector *v1.Selector `json:"eipIdSelector,omitempty" tf:"-"`
 
-	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with network_interface_id and private_ip fields.
 	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with `network_interface_id` and `private_ip fields`.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Indicates the network interface id like eni-xxxxxx. This field is conflict with instance_id.
 	// Indicates the network interface id like `eni-xxxxxx`. This field is conflict with `instance_id`.
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
-	// Indicates an IP belongs to the network_interface_id. This field is conflict with instance_id.
 	// Indicates an IP belongs to the `network_interface_id`. This field is conflict with `instance_id`.
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 }
@@ -44,28 +40,22 @@ type EipAssociationInitParameters struct {
 type EipAssociationObservation struct {
 
 	// The ID of EIP.
-	// The ID of EIP.
 	EIPID *string `json:"eipId,omitempty" tf:"eip_id,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with network_interface_id and private_ip fields.
 	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with `network_interface_id` and `private_ip fields`.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Indicates the network interface id like eni-xxxxxx. This field is conflict with instance_id.
 	// Indicates the network interface id like `eni-xxxxxx`. This field is conflict with `instance_id`.
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
-	// Indicates an IP belongs to the network_interface_id. This field is conflict with instance_id.
 	// Indicates an IP belongs to the `network_interface_id`. This field is conflict with `instance_id`.
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 }
 
 type EipAssociationParameters struct {
 
-	// The ID of EIP.
 	// The ID of EIP.
 	// +crossplane:generate:reference:type=Eip
 	// +kubebuilder:validation:Optional
@@ -79,17 +69,14 @@ type EipAssociationParameters struct {
 	// +kubebuilder:validation:Optional
 	EIPIDSelector *v1.Selector `json:"eipIdSelector,omitempty" tf:"-"`
 
-	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with network_interface_id and private_ip fields.
 	// The CVM or CLB instance id going to bind with the EIP. This field is conflict with `network_interface_id` and `private_ip fields`.
 	// +kubebuilder:validation:Optional
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Indicates the network interface id like eni-xxxxxx. This field is conflict with instance_id.
 	// Indicates the network interface id like `eni-xxxxxx`. This field is conflict with `instance_id`.
 	// +kubebuilder:validation:Optional
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
-	// Indicates an IP belongs to the network_interface_id. This field is conflict with instance_id.
 	// Indicates an IP belongs to the `network_interface_id`. This field is conflict with `instance_id`.
 	// +kubebuilder:validation:Optional
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
@@ -122,7 +109,7 @@ type EipAssociationStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// EipAssociation is the Schema for the EipAssociations API. Provides an eip resource associated with other resource like CVM, ENI and CLB.
+// EipAssociation is the Schema for the EipAssociations API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

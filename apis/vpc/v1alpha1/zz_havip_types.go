@@ -16,10 +16,8 @@ import (
 type HaVipInitParameters struct {
 
 	// Name of the HA VIP. The length of character is limited to 1-60.
-	// Name of the HA VIP. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Subnet ID.
 	// Subnet ID.
 	// +crossplane:generate:reference:type=Subnet
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
@@ -33,7 +31,6 @@ type HaVipInitParameters struct {
 	SubnetIDSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
 
 	// VPC ID.
-	// VPC ID.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
@@ -45,7 +42,6 @@ type HaVipInitParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	Vip *string `json:"vip,omitempty" tf:"vip,omitempty"`
 }
@@ -53,41 +49,31 @@ type HaVipInitParameters struct {
 type HaVipObservation struct {
 
 	// EIP that is associated.
-	// EIP that is associated.
 	AddressIP *string `json:"addressIp,omitempty" tf:"address_ip,omitempty"`
 
 	// Create time of the HA VIP.
-	// Create time of the HA VIP.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Instance ID that is associated.
 	// Instance ID that is associated.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
 	// Name of the HA VIP. The length of character is limited to 1-60.
-	// Name of the HA VIP. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Network interface ID that is associated.
-	// Network interface ID that is associated.
 	NetworkInterfaceID *string `json:"networkInterfaceId,omitempty" tf:"network_interface_id,omitempty"`
 
-	// State of the HA VIP. Valid value: AVAILABLE, UNBIND.
 	// State of the HA VIP. Valid value: `AVAILABLE`, `UNBIND`.
 	State *string `json:"state,omitempty" tf:"state,omitempty"`
 
 	// Subnet ID.
-	// Subnet ID.
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 
 	// VPC ID.
-	// VPC ID.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	Vip *string `json:"vip,omitempty" tf:"vip,omitempty"`
 }
@@ -95,11 +81,9 @@ type HaVipObservation struct {
 type HaVipParameters struct {
 
 	// Name of the HA VIP. The length of character is limited to 1-60.
-	// Name of the HA VIP. The length of character is limited to 1-60.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Subnet ID.
 	// Subnet ID.
 	// +crossplane:generate:reference:type=Subnet
 	// +kubebuilder:validation:Optional
@@ -114,7 +98,6 @@ type HaVipParameters struct {
 	SubnetIDSelector *v1.Selector `json:"subnetIdSelector,omitempty" tf:"-"`
 
 	// VPC ID.
-	// VPC ID.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -127,7 +110,6 @@ type HaVipParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	// Virtual IP address, it must not be occupied and in this VPC network segment. If not set, it will be assigned after resource created automatically.
 	// +kubebuilder:validation:Optional
 	Vip *string `json:"vip,omitempty" tf:"vip,omitempty"`
@@ -160,7 +142,7 @@ type HaVipStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// HaVip is the Schema for the HaVips API. Provides a resource to create a HA VIP.
+// HaVip is the Schema for the HaVips API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

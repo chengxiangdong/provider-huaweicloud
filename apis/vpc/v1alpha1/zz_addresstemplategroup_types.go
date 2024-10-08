@@ -16,10 +16,8 @@ import (
 type AddressTemplateGroupInitParameters struct {
 
 	// Name of the address template group.
-	// Name of the address template group.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Template ID list.
 	// Template ID list.
 	// +crossplane:generate:reference:type=AddressTemplate
 	// +listType=set
@@ -35,15 +33,11 @@ type AddressTemplateGroupInitParameters struct {
 }
 
 type AddressTemplateGroupObservation struct {
-
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// Name of the address template group.
-	// Name of the address template group.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Template ID list.
 	// Template ID list.
 	// +listType=set
 	TemplateIds []*string `json:"templateIds,omitempty" tf:"template_ids,omitempty"`
@@ -52,11 +46,9 @@ type AddressTemplateGroupObservation struct {
 type AddressTemplateGroupParameters struct {
 
 	// Name of the address template group.
-	// Name of the address template group.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Template ID list.
 	// Template ID list.
 	// +crossplane:generate:reference:type=AddressTemplate
 	// +kubebuilder:validation:Optional
@@ -99,7 +91,7 @@ type AddressTemplateGroupStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// AddressTemplateGroup is the Schema for the AddressTemplateGroups API. Provides a resource to manage address template group.
+// AddressTemplateGroup is the Schema for the AddressTemplateGroups API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

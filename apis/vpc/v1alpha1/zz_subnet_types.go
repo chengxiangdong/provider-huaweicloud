@@ -16,35 +16,27 @@ import (
 type SubnetInitParameters struct {
 
 	// The availability zone within which the subnet should be created.
-	// The availability zone within which the subnet should be created.
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
-	// ID of CDC instance.
 	// ID of CDC instance.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
 	// A network address block of the subnet.
-	// A network address block of the subnet.
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
-	// Indicates whether multicast is enabled. The default value is 'true'.
 	// Indicates whether multicast is enabled. The default value is 'true'.
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
 	// The name of subnet to be created.
-	// The name of subnet to be created.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// ID of a routing table to which the subnet should be associated.
 	// ID of a routing table to which the subnet should be associated.
 	RouteTableID *string `json:"routeTableId,omitempty" tf:"route_table_id,omitempty"`
 
 	// Tags of the subnet.
-	// Tags of the subnet.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC to be associated.
 	// ID of the VPC to be associated.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -61,50 +53,38 @@ type SubnetInitParameters struct {
 type SubnetObservation struct {
 
 	// The availability zone within which the subnet should be created.
-	// The availability zone within which the subnet should be created.
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
-	// The number of available IPs.
 	// The number of available IPs.
 	AvailableIPCount *float64 `json:"availableIpCount,omitempty" tf:"available_ip_count,omitempty"`
 
 	// ID of CDC instance.
-	// ID of CDC instance.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// A network address block of the subnet.
 	// A network address block of the subnet.
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// Creation time of subnet resource.
-	// Creation time of subnet resource.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Indicates whether it is the default VPC for this region.
 	// Indicates whether it is the default VPC for this region.
 	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
 	// Indicates whether multicast is enabled. The default value is 'true'.
-	// Indicates whether multicast is enabled. The default value is 'true'.
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
-	// The name of subnet to be created.
 	// The name of subnet to be created.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// ID of a routing table to which the subnet should be associated.
-	// ID of a routing table to which the subnet should be associated.
 	RouteTableID *string `json:"routeTableId,omitempty" tf:"route_table_id,omitempty"`
 
-	// Tags of the subnet.
 	// Tags of the subnet.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC to be associated.
 	// ID of the VPC to be associated.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
@@ -112,42 +92,34 @@ type SubnetObservation struct {
 type SubnetParameters struct {
 
 	// The availability zone within which the subnet should be created.
-	// The availability zone within which the subnet should be created.
 	// +kubebuilder:validation:Optional
 	AvailabilityZone *string `json:"availabilityZone,omitempty" tf:"availability_zone,omitempty"`
 
-	// ID of CDC instance.
 	// ID of CDC instance.
 	// +kubebuilder:validation:Optional
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
 	// A network address block of the subnet.
-	// A network address block of the subnet.
 	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
-	// Indicates whether multicast is enabled. The default value is 'true'.
 	// Indicates whether multicast is enabled. The default value is 'true'.
 	// +kubebuilder:validation:Optional
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
 	// The name of subnet to be created.
-	// The name of subnet to be created.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// ID of a routing table to which the subnet should be associated.
 	// ID of a routing table to which the subnet should be associated.
 	// +kubebuilder:validation:Optional
 	RouteTableID *string `json:"routeTableId,omitempty" tf:"route_table_id,omitempty"`
 
 	// Tags of the subnet.
-	// Tags of the subnet.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC to be associated.
 	// ID of the VPC to be associated.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -189,7 +161,7 @@ type SubnetStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Subnet is the Schema for the Subnets API. Provide a resource to create a VPC subnet.
+// Subnet is the Schema for the Subnets API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

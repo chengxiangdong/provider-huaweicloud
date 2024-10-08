@@ -16,36 +16,28 @@ import (
 type NatGatewayInitParameters struct {
 
 	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
-	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
 	// +listType=set
 	AssignedEIPSet []*string `json:"assignedEipSet,omitempty" tf:"assigned_eip_set,omitempty"`
 
-	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: 20, 50, 100, 200, 500, 1000, 2000, 5000. Default is 100.
 	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: `20`, `50`, `100`, `200`, `500`, `1000`, `2000`, `5000`. Default is 100.
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
-	// The upper limit of concurrent connection of NAT gateway. Valid values: 1000000, 3000000, 10000000. Default is 1000000.
 	// The upper limit of concurrent connection of NAT gateway. Valid values: `1000000`, `3000000`, `10000000`. Default is `1000000`.
 	MaxConcurrent *float64 `json:"maxConcurrent,omitempty" tf:"max_concurrent,omitempty"`
 
 	// 1: traditional NAT, 2: standard NAT, default value is 1.
-	// 1: traditional NAT, 2: standard NAT, default value is 1.
 	NATProductVersion *float64 `json:"natProductVersion,omitempty" tf:"nat_product_version,omitempty"`
 
-	// Name of the NAT gateway.
 	// Name of the NAT gateway.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Subnet of NAT.
-	// Subnet of NAT.
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 
-	// The available tags within this NAT gateway.
 	// The available tags within this NAT gateway.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the vpc.
 	// ID of the vpc.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -58,7 +50,6 @@ type NatGatewayInitParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// The availability zone, such as ap-guangzhou-3.
 	// The availability zone, such as `ap-guangzhou-3`.
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
 }
@@ -66,47 +57,36 @@ type NatGatewayInitParameters struct {
 type NatGatewayObservation struct {
 
 	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
-	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
 	// +listType=set
 	AssignedEIPSet []*string `json:"assignedEipSet,omitempty" tf:"assigned_eip_set,omitempty"`
 
-	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: 20, 50, 100, 200, 500, 1000, 2000, 5000. Default is 100.
 	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: `20`, `50`, `100`, `200`, `500`, `1000`, `2000`, `5000`. Default is 100.
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
 	// Create time of the NAT gateway.
-	// Create time of the NAT gateway.
 	CreatedTime *string `json:"createdTime,omitempty" tf:"created_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The upper limit of concurrent connection of NAT gateway. Valid values: 1000000, 3000000, 10000000. Default is 1000000.
 	// The upper limit of concurrent connection of NAT gateway. Valid values: `1000000`, `3000000`, `10000000`. Default is `1000000`.
 	MaxConcurrent *float64 `json:"maxConcurrent,omitempty" tf:"max_concurrent,omitempty"`
 
 	// 1: traditional NAT, 2: standard NAT, default value is 1.
-	// 1: traditional NAT, 2: standard NAT, default value is 1.
 	NATProductVersion *float64 `json:"natProductVersion,omitempty" tf:"nat_product_version,omitempty"`
 
-	// Name of the NAT gateway.
 	// Name of the NAT gateway.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Subnet of NAT.
-	// Subnet of NAT.
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 
-	// The available tags within this NAT gateway.
 	// The available tags within this NAT gateway.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
 	// ID of the vpc.
-	// ID of the vpc.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	// The availability zone, such as ap-guangzhou-3.
 	// The availability zone, such as `ap-guangzhou-3`.
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
 }
@@ -114,43 +94,35 @@ type NatGatewayObservation struct {
 type NatGatewayParameters struct {
 
 	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
-	// EIP IP address set bound to the gateway. The value of at least 1 and at most 10.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AssignedEIPSet []*string `json:"assignedEipSet,omitempty" tf:"assigned_eip_set,omitempty"`
 
-	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: 20, 50, 100, 200, 500, 1000, 2000, 5000. Default is 100.
 	// The maximum public network output bandwidth of NAT gateway (unit: Mbps). Valid values: `20`, `50`, `100`, `200`, `500`, `1000`, `2000`, `5000`. Default is 100.
 	// +kubebuilder:validation:Optional
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
-	// The upper limit of concurrent connection of NAT gateway. Valid values: 1000000, 3000000, 10000000. Default is 1000000.
 	// The upper limit of concurrent connection of NAT gateway. Valid values: `1000000`, `3000000`, `10000000`. Default is `1000000`.
 	// +kubebuilder:validation:Optional
 	MaxConcurrent *float64 `json:"maxConcurrent,omitempty" tf:"max_concurrent,omitempty"`
 
 	// 1: traditional NAT, 2: standard NAT, default value is 1.
-	// 1: traditional NAT, 2: standard NAT, default value is 1.
 	// +kubebuilder:validation:Optional
 	NATProductVersion *float64 `json:"natProductVersion,omitempty" tf:"nat_product_version,omitempty"`
 
-	// Name of the NAT gateway.
 	// Name of the NAT gateway.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Subnet of NAT.
-	// Subnet of NAT.
 	// +kubebuilder:validation:Optional
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 
-	// The available tags within this NAT gateway.
 	// The available tags within this NAT gateway.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the vpc.
 	// ID of the vpc.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -164,7 +136,6 @@ type NatGatewayParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// The availability zone, such as ap-guangzhou-3.
 	// The availability zone, such as `ap-guangzhou-3`.
 	// +kubebuilder:validation:Optional
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
@@ -197,7 +168,7 @@ type NatGatewayStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// NatGateway is the Schema for the NatGateways API. Provides a resource to create a NAT gateway.
+// NatGateway is the Schema for the NatGateways API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

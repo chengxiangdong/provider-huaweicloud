@@ -16,15 +16,12 @@ import (
 type RouteTableInitParameters struct {
 
 	// The name of routing table.
-	// The name of routing table.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// The tags of routing table.
 	// The tags of routing table.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of VPC to which the route table should be associated.
 	// ID of VPC to which the route table should be associated.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -41,34 +38,26 @@ type RouteTableInitParameters struct {
 type RouteTableObservation struct {
 
 	// Creation time of the routing table.
-	// Creation time of the routing table.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Indicates whether it is the default routing table.
 	// Indicates whether it is the default routing table.
 	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
 	// The name of routing table.
-	// The name of routing table.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// ID list of the routing entries.
 	// ID list of the routing entries.
 	RouteEntryIds []*string `json:"routeEntryIds,omitempty" tf:"route_entry_ids,omitempty"`
 
 	// ID list of the subnets associated with this route table.
-	// ID list of the subnets associated with this route table.
 	SubnetIds []*string `json:"subnetIds,omitempty" tf:"subnet_ids,omitempty"`
 
-	// The tags of routing table.
 	// The tags of routing table.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of VPC to which the route table should be associated.
 	// ID of VPC to which the route table should be associated.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
@@ -76,17 +65,14 @@ type RouteTableObservation struct {
 type RouteTableParameters struct {
 
 	// The name of routing table.
-	// The name of routing table.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// The tags of routing table.
 	// The tags of routing table.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of VPC to which the route table should be associated.
 	// ID of VPC to which the route table should be associated.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -128,7 +114,7 @@ type RouteTableStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// RouteTable is the Schema for the RouteTables API. Provides a resource to create a VPC routing table.
+// RouteTable is the Schema for the RouteTables API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

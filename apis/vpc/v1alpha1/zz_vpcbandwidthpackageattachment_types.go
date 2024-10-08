@@ -15,7 +15,6 @@ import (
 
 type VPCBandwidthPackageAttachmentInitParameters struct {
 
-	// Bandwidth package unique ID, in the form of bwp-xxxx.
 	// Bandwidth package unique ID, in the form of `bwp-xxxx`.
 	// +crossplane:generate:reference:type=VPCBandwidthPackage
 	BandwidthPackageID *string `json:"bandwidthPackageId,omitempty" tf:"bandwidth_package_id,omitempty"`
@@ -28,52 +27,41 @@ type VPCBandwidthPackageAttachmentInitParameters struct {
 	// +kubebuilder:validation:Optional
 	BandwidthPackageIDSelector *v1.Selector `json:"bandwidthPackageIdSelector,omitempty" tf:"-"`
 
-	// Bandwidth packet type, currently supports BGP type, indicating that the internal resource is BGP IP.
 	// Bandwidth packet type, currently supports `BGP` type, indicating that the internal resource is BGP IP.
 	NetworkType *string `json:"networkType,omitempty" tf:"network_type,omitempty"`
 
-	// Bandwidth packet protocol type. Currently ipv4 and ipv6 protocol types are supported.
 	// Bandwidth packet protocol type. Currently `ipv4` and `ipv6` protocol types are supported.
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// The unique ID of the resource, currently supports EIP resources and LB resources, such as eip-xxxx, lb-xxxx.
 	// The unique ID of the resource, currently supports EIP resources and LB resources, such as `eip-xxxx`, `lb-xxxx`.
 	ResourceID *string `json:"resourceId,omitempty" tf:"resource_id,omitempty"`
 
-	// Resource types, including Address, LoadBalance.
 	// Resource types, including `Address`, `LoadBalance`.
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
 }
 
 type VPCBandwidthPackageAttachmentObservation struct {
 
-	// Bandwidth package unique ID, in the form of bwp-xxxx.
 	// Bandwidth package unique ID, in the form of `bwp-xxxx`.
 	BandwidthPackageID *string `json:"bandwidthPackageId,omitempty" tf:"bandwidth_package_id,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Bandwidth packet type, currently supports BGP type, indicating that the internal resource is BGP IP.
 	// Bandwidth packet type, currently supports `BGP` type, indicating that the internal resource is BGP IP.
 	NetworkType *string `json:"networkType,omitempty" tf:"network_type,omitempty"`
 
-	// Bandwidth packet protocol type. Currently ipv4 and ipv6 protocol types are supported.
 	// Bandwidth packet protocol type. Currently `ipv4` and `ipv6` protocol types are supported.
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// The unique ID of the resource, currently supports EIP resources and LB resources, such as eip-xxxx, lb-xxxx.
 	// The unique ID of the resource, currently supports EIP resources and LB resources, such as `eip-xxxx`, `lb-xxxx`.
 	ResourceID *string `json:"resourceId,omitempty" tf:"resource_id,omitempty"`
 
-	// Resource types, including Address, LoadBalance.
 	// Resource types, including `Address`, `LoadBalance`.
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
 }
 
 type VPCBandwidthPackageAttachmentParameters struct {
 
-	// Bandwidth package unique ID, in the form of bwp-xxxx.
 	// Bandwidth package unique ID, in the form of `bwp-xxxx`.
 	// +crossplane:generate:reference:type=VPCBandwidthPackage
 	// +kubebuilder:validation:Optional
@@ -87,22 +75,18 @@ type VPCBandwidthPackageAttachmentParameters struct {
 	// +kubebuilder:validation:Optional
 	BandwidthPackageIDSelector *v1.Selector `json:"bandwidthPackageIdSelector,omitempty" tf:"-"`
 
-	// Bandwidth packet type, currently supports BGP type, indicating that the internal resource is BGP IP.
 	// Bandwidth packet type, currently supports `BGP` type, indicating that the internal resource is BGP IP.
 	// +kubebuilder:validation:Optional
 	NetworkType *string `json:"networkType,omitempty" tf:"network_type,omitempty"`
 
-	// Bandwidth packet protocol type. Currently ipv4 and ipv6 protocol types are supported.
 	// Bandwidth packet protocol type. Currently `ipv4` and `ipv6` protocol types are supported.
 	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// The unique ID of the resource, currently supports EIP resources and LB resources, such as eip-xxxx, lb-xxxx.
 	// The unique ID of the resource, currently supports EIP resources and LB resources, such as `eip-xxxx`, `lb-xxxx`.
 	// +kubebuilder:validation:Optional
 	ResourceID *string `json:"resourceId,omitempty" tf:"resource_id,omitempty"`
 
-	// Resource types, including Address, LoadBalance.
 	// Resource types, including `Address`, `LoadBalance`.
 	// +kubebuilder:validation:Optional
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
@@ -135,7 +119,7 @@ type VPCBandwidthPackageAttachmentStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPCBandwidthPackageAttachment is the Schema for the VPCBandwidthPackageAttachments API. Provides a resource to create a vpc bandwidth_package_attachment
+// VPCBandwidthPackageAttachment is the Schema for the VPCBandwidthPackageAttachments API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

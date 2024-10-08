@@ -16,10 +16,8 @@ import (
 type ProtocolTemplateGroupInitParameters struct {
 
 	// Name of the protocol template group.
-	// Name of the protocol template group.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Service template ID list.
 	// Service template ID list.
 	// +crossplane:generate:reference:type=ProtocolTemplate
 	// +listType=set
@@ -35,15 +33,11 @@ type ProtocolTemplateGroupInitParameters struct {
 }
 
 type ProtocolTemplateGroupObservation struct {
-
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// Name of the protocol template group.
-	// Name of the protocol template group.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Service template ID list.
 	// Service template ID list.
 	// +listType=set
 	TemplateIds []*string `json:"templateIds,omitempty" tf:"template_ids,omitempty"`
@@ -52,11 +46,9 @@ type ProtocolTemplateGroupObservation struct {
 type ProtocolTemplateGroupParameters struct {
 
 	// Name of the protocol template group.
-	// Name of the protocol template group.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Service template ID list.
 	// Service template ID list.
 	// +crossplane:generate:reference:type=ProtocolTemplate
 	// +kubebuilder:validation:Optional
@@ -99,7 +91,7 @@ type ProtocolTemplateGroupStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// ProtocolTemplateGroup is the Schema for the ProtocolTemplateGroups API. Provides a resource to manage protocol template group.
+// ProtocolTemplateGroup is the Schema for the ProtocolTemplateGroups API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

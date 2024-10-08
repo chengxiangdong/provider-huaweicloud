@@ -16,34 +16,26 @@ import (
 type NatGatewaySnatInitParameters struct {
 
 	// Description.
-	// Description.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Instance ID, required when resource_type is NETWORKINTERFACE.
 	// Instance ID, required when `resource_type` is NETWORKINTERFACE.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Private IPs of the instance's primary ENI, required when resource_type is NETWORKINTERFACE.
 	// Private IPs of the instance's primary ENI, required when `resource_type` is NETWORKINTERFACE.
 	InstancePrivateIPAddr *string `json:"instancePrivateIpAddr,omitempty" tf:"instance_private_ip_addr,omitempty"`
 
 	// NAT gateway ID.
-	// NAT gateway ID.
 	NATGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
-	// Elastic IP address pool.
 	// Elastic IP address pool.
 	PublicIPAddr []*string `json:"publicIpAddr,omitempty" tf:"public_ip_addr,omitempty"`
 
 	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
-	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
 
-	// The IPv4 CIDR of the subnet, required when resource_type is SUBNET.
 	// The IPv4 CIDR of the subnet, required when `resource_type` is SUBNET.
 	SubnetCidrBlock *string `json:"subnetCidrBlock,omitempty" tf:"subnet_cidr_block,omitempty"`
 
-	// Subnet instance ID, required when resource_type is SUBNET.
 	// Subnet instance ID, required when `resource_type` is SUBNET.
 	// +crossplane:generate:reference:type=Subnet
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
@@ -60,45 +52,34 @@ type NatGatewaySnatInitParameters struct {
 type NatGatewaySnatObservation struct {
 
 	// Create time.
-	// Create time.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
 	// Description.
-	// Description.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Instance ID, required when resource_type is NETWORKINTERFACE.
 	// Instance ID, required when `resource_type` is NETWORKINTERFACE.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Private IPs of the instance's primary ENI, required when resource_type is NETWORKINTERFACE.
 	// Private IPs of the instance's primary ENI, required when `resource_type` is NETWORKINTERFACE.
 	InstancePrivateIPAddr *string `json:"instancePrivateIpAddr,omitempty" tf:"instance_private_ip_addr,omitempty"`
 
 	// NAT gateway ID.
-	// NAT gateway ID.
 	NATGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
-	// Elastic IP address pool.
 	// Elastic IP address pool.
 	PublicIPAddr []*string `json:"publicIpAddr,omitempty" tf:"public_ip_addr,omitempty"`
 
 	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
-	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
 
 	// SNAT rule ID.
-	// SNAT rule ID.
 	SnatID *string `json:"snatId,omitempty" tf:"snat_id,omitempty"`
 
-	// The IPv4 CIDR of the subnet, required when resource_type is SUBNET.
 	// The IPv4 CIDR of the subnet, required when `resource_type` is SUBNET.
 	SubnetCidrBlock *string `json:"subnetCidrBlock,omitempty" tf:"subnet_cidr_block,omitempty"`
 
-	// Subnet instance ID, required when resource_type is SUBNET.
 	// Subnet instance ID, required when `resource_type` is SUBNET.
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 }
@@ -106,41 +87,33 @@ type NatGatewaySnatObservation struct {
 type NatGatewaySnatParameters struct {
 
 	// Description.
-	// Description.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Instance ID, required when resource_type is NETWORKINTERFACE.
 	// Instance ID, required when `resource_type` is NETWORKINTERFACE.
 	// +kubebuilder:validation:Optional
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
-	// Private IPs of the instance's primary ENI, required when resource_type is NETWORKINTERFACE.
 	// Private IPs of the instance's primary ENI, required when `resource_type` is NETWORKINTERFACE.
 	// +kubebuilder:validation:Optional
 	InstancePrivateIPAddr *string `json:"instancePrivateIpAddr,omitempty" tf:"instance_private_ip_addr,omitempty"`
 
 	// NAT gateway ID.
-	// NAT gateway ID.
 	// +kubebuilder:validation:Optional
 	NATGatewayID *string `json:"natGatewayId,omitempty" tf:"nat_gateway_id,omitempty"`
 
-	// Elastic IP address pool.
 	// Elastic IP address pool.
 	// +kubebuilder:validation:Optional
 	PublicIPAddr []*string `json:"publicIpAddr,omitempty" tf:"public_ip_addr,omitempty"`
 
 	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
-	// Resource type. Valid values: SUBNET, NETWORKINTERFACE.
 	// +kubebuilder:validation:Optional
 	ResourceType *string `json:"resourceType,omitempty" tf:"resource_type,omitempty"`
 
-	// The IPv4 CIDR of the subnet, required when resource_type is SUBNET.
 	// The IPv4 CIDR of the subnet, required when `resource_type` is SUBNET.
 	// +kubebuilder:validation:Optional
 	SubnetCidrBlock *string `json:"subnetCidrBlock,omitempty" tf:"subnet_cidr_block,omitempty"`
 
-	// Subnet instance ID, required when resource_type is SUBNET.
 	// Subnet instance ID, required when `resource_type` is SUBNET.
 	// +crossplane:generate:reference:type=Subnet
 	// +kubebuilder:validation:Optional
@@ -182,7 +155,7 @@ type NatGatewaySnatStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// NatGatewaySnat is the Schema for the NatGatewaySnats API. Provides a resource to create a NAT Gateway SNat rule.
+// NatGatewaySnat is the Schema for the NatGatewaySnats API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

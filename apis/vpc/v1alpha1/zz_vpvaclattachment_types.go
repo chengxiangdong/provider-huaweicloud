@@ -16,7 +16,6 @@ import (
 type VPVAclAttachmentInitParameters struct {
 
 	// ID of the attached ACL.
-	// ID of the attached ACL.
 	// +crossplane:generate:reference:type=VPCAcl
 	ACLID *string `json:"aclId,omitempty" tf:"acl_id,omitempty"`
 
@@ -28,7 +27,6 @@ type VPVAclAttachmentInitParameters struct {
 	// +kubebuilder:validation:Optional
 	ACLIDSelector *v1.Selector `json:"aclIdSelector,omitempty" tf:"-"`
 
-	// The Subnet instance ID.
 	// The Subnet instance ID.
 	// +crossplane:generate:reference:type=Subnet
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
@@ -45,20 +43,16 @@ type VPVAclAttachmentInitParameters struct {
 type VPVAclAttachmentObservation struct {
 
 	// ID of the attached ACL.
-	// ID of the attached ACL.
 	ACLID *string `json:"aclId,omitempty" tf:"acl_id,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The Subnet instance ID.
 	// The Subnet instance ID.
 	SubnetID *string `json:"subnetId,omitempty" tf:"subnet_id,omitempty"`
 }
 
 type VPVAclAttachmentParameters struct {
 
-	// ID of the attached ACL.
 	// ID of the attached ACL.
 	// +crossplane:generate:reference:type=VPCAcl
 	// +kubebuilder:validation:Optional
@@ -72,7 +66,6 @@ type VPVAclAttachmentParameters struct {
 	// +kubebuilder:validation:Optional
 	ACLIDSelector *v1.Selector `json:"aclIdSelector,omitempty" tf:"-"`
 
-	// The Subnet instance ID.
 	// The Subnet instance ID.
 	// +crossplane:generate:reference:type=Subnet
 	// +kubebuilder:validation:Optional
@@ -114,7 +107,7 @@ type VPVAclAttachmentStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPVAclAttachment is the Schema for the VPVAclAttachments API. Provide a resource to attach an existing subnet to Network ACL.
+// VPVAclAttachment is the Schema for the VPVAclAttachments API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

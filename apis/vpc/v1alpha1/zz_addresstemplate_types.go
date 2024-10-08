@@ -15,40 +15,33 @@ import (
 
 type AddressTemplateInitParameters struct {
 
-	// Address list. IP(10.0.0.1), CIDR(10.0.1.0/24), IP range(10.0.0.1-10.0.0.100) format are supported.
 	// Address list. IP(`10.0.0.1`), CIDR(`10.0.1.0/24`), IP range(`10.0.0.1-10.0.0.100`) format are supported.
 	// +listType=set
 	Addresses []*string `json:"addresses,omitempty" tf:"addresses,omitempty"`
 
-	// Name of the address template.
 	// Name of the address template.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 }
 
 type AddressTemplateObservation struct {
 
-	// Address list. IP(10.0.0.1), CIDR(10.0.1.0/24), IP range(10.0.0.1-10.0.0.100) format are supported.
 	// Address list. IP(`10.0.0.1`), CIDR(`10.0.1.0/24`), IP range(`10.0.0.1-10.0.0.100`) format are supported.
 	// +listType=set
 	Addresses []*string `json:"addresses,omitempty" tf:"addresses,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Name of the address template.
 	// Name of the address template.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 }
 
 type AddressTemplateParameters struct {
 
-	// Address list. IP(10.0.0.1), CIDR(10.0.1.0/24), IP range(10.0.0.1-10.0.0.100) format are supported.
 	// Address list. IP(`10.0.0.1`), CIDR(`10.0.1.0/24`), IP range(`10.0.0.1-10.0.0.100`) format are supported.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	Addresses []*string `json:"addresses,omitempty" tf:"addresses,omitempty"`
 
-	// Name of the address template.
 	// Name of the address template.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -81,7 +74,7 @@ type AddressTemplateStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// AddressTemplate is the Schema for the AddressTemplates API. Provides a resource to manage address template.
+// AddressTemplate is the Schema for the AddressTemplates API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

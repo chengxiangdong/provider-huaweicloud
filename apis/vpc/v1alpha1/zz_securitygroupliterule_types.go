@@ -15,15 +15,12 @@ import (
 
 type SecurityGroupLiteRuleInitParameters struct {
 
-	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
-	// ID of the security group.
 	// ID of the security group.
 	// +crossplane:generate:reference:type=SecurityGroup
 	SecurityGroupID *string `json:"securityGroupId,omitempty" tf:"security_group_id,omitempty"`
@@ -39,35 +36,28 @@ type SecurityGroupLiteRuleInitParameters struct {
 
 type SecurityGroupLiteRuleObservation struct {
 
-	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
-	// ID of the security group.
 	// ID of the security group.
 	SecurityGroupID *string `json:"securityGroupId,omitempty" tf:"security_group_id,omitempty"`
 }
 
 type SecurityGroupLiteRuleParameters struct {
 
-	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	// +kubebuilder:validation:Optional
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is 80, 80,443, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP, ALL and ppm(g?)-xxxxxxxx. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules set. A rule must match the following format: [action]#[source]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'source' can be an IP address network, segment, security group ID and Address Template ID. The 'port' valid format is `80`, `80,443`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP`, `ALL` and `ppm(g?)-xxxxxxxx`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	// +kubebuilder:validation:Optional
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
-	// ID of the security group.
 	// ID of the security group.
 	// +crossplane:generate:reference:type=SecurityGroup
 	// +kubebuilder:validation:Optional
@@ -109,7 +99,7 @@ type SecurityGroupLiteRuleStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// SecurityGroupLiteRule is the Schema for the SecurityGroupLiteRules API. Provide a resource to create security group some lite rules quickly.
+// SecurityGroupLiteRule is the Schema for the SecurityGroupLiteRules API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

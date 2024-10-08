@@ -16,26 +16,20 @@ import (
 type VPNGatewayRouteInitParameters struct {
 
 	// Destination IDC IP range.
-	// Destination IDC IP range.
 	DestinationCidrBlock *string `json:"destinationCidrBlock,omitempty" tf:"destination_cidr_block,omitempty"`
 
-	// Instance ID of the next hop.
 	// Instance ID of the next hop.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
 	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
-	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
-	// Priority. Valid values: 0 and 100.
 	// Priority. Valid values: 0 and 100.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// Status. Valid values: ENABLE and DISABLE.
-	// Status. Valid values: ENABLE and DISABLE.
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	// +crossplane:generate:reference:type=VPNGateway
 	VPNGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id,omitempty"`
@@ -52,45 +46,34 @@ type VPNGatewayRouteInitParameters struct {
 type VPNGatewayRouteObservation struct {
 
 	// Create time.
-	// Create time.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
 	// Destination IDC IP range.
-	// Destination IDC IP range.
 	DestinationCidrBlock *string `json:"destinationCidrBlock,omitempty" tf:"destination_cidr_block,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Instance ID of the next hop.
 	// Instance ID of the next hop.
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
 	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
-	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
-	// Priority. Valid values: 0 and 100.
 	// Priority. Valid values: 0 and 100.
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// Route ID.
-	// Route ID.
 	RouteID *string `json:"routeId,omitempty" tf:"route_id,omitempty"`
 
-	// Status. Valid values: ENABLE and DISABLE.
 	// Status. Valid values: ENABLE and DISABLE.
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
 	// Route type. Default value: Static.
-	// Route type. Default value: Static.
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
 	// Update time.
-	// Update time.
 	UpdateTime *string `json:"updateTime,omitempty" tf:"update_time,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	VPNGatewayID *string `json:"vpnGatewayId,omitempty" tf:"vpn_gateway_id,omitempty"`
 }
@@ -98,31 +81,25 @@ type VPNGatewayRouteObservation struct {
 type VPNGatewayRouteParameters struct {
 
 	// Destination IDC IP range.
-	// Destination IDC IP range.
 	// +kubebuilder:validation:Optional
 	DestinationCidrBlock *string `json:"destinationCidrBlock,omitempty" tf:"destination_cidr_block,omitempty"`
 
-	// Instance ID of the next hop.
 	// Instance ID of the next hop.
 	// +kubebuilder:validation:Optional
 	InstanceID *string `json:"instanceId,omitempty" tf:"instance_id,omitempty"`
 
 	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
-	// Next hop type (type of the associated instance). Valid values: VPNCONN (VPN tunnel) and CCN (CCN instance).
 	// +kubebuilder:validation:Optional
 	InstanceType *string `json:"instanceType,omitempty" tf:"instance_type,omitempty"`
 
-	// Priority. Valid values: 0 and 100.
 	// Priority. Valid values: 0 and 100.
 	// +kubebuilder:validation:Optional
 	Priority *float64 `json:"priority,omitempty" tf:"priority,omitempty"`
 
 	// Status. Valid values: ENABLE and DISABLE.
-	// Status. Valid values: ENABLE and DISABLE.
 	// +kubebuilder:validation:Optional
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
-	// VPN gateway ID.
 	// VPN gateway ID.
 	// +crossplane:generate:reference:type=VPNGateway
 	// +kubebuilder:validation:Optional
@@ -164,7 +141,7 @@ type VPNGatewayRouteStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPNGatewayRoute is the Schema for the VPNGatewayRoutes API. Provides a resource to create a VPN gateway route.
+// VPNGatewayRoute is the Schema for the VPNGatewayRoutes API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

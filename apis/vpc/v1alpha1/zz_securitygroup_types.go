@@ -16,18 +16,14 @@ import (
 type SecurityGroupInitParameters struct {
 
 	// Description of the security group.
-	// Description of the security group.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Name of the security group to be queried.
 	// Name of the security group to be queried.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Project ID of the security group.
-	// Project ID of the security group.
 	ProjectID *float64 `json:"projectId,omitempty" tf:"project_id,omitempty"`
 
-	// Tags of the security group.
 	// Tags of the security group.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -36,21 +32,16 @@ type SecurityGroupInitParameters struct {
 type SecurityGroupObservation struct {
 
 	// Description of the security group.
-	// Description of the security group.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Name of the security group to be queried.
 	// Name of the security group to be queried.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Project ID of the security group.
-	// Project ID of the security group.
 	ProjectID *float64 `json:"projectId,omitempty" tf:"project_id,omitempty"`
 
-	// Tags of the security group.
 	// Tags of the security group.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -59,21 +50,17 @@ type SecurityGroupObservation struct {
 type SecurityGroupParameters struct {
 
 	// Description of the security group.
-	// Description of the security group.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Name of the security group to be queried.
 	// Name of the security group to be queried.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// Project ID of the security group.
-	// Project ID of the security group.
 	// +kubebuilder:validation:Optional
 	ProjectID *float64 `json:"projectId,omitempty" tf:"project_id,omitempty"`
 
-	// Tags of the security group.
 	// Tags of the security group.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
@@ -107,7 +94,7 @@ type SecurityGroupStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// SecurityGroup is the Schema for the SecurityGroups API. Provides a resource to create security group.
+// SecurityGroup is the Schema for the SecurityGroups API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -15,204 +15,159 @@ import (
 
 type EipInitParameters struct {
 
-	// ID of anti DDos package, it must set when type is AntiDDoSEIP.
 	// ID of anti DDos package, it must set when `type` is `AntiDDoSEIP`.
 	AntiDdosPackageID *string `json:"antiDdosPackageId,omitempty" tf:"anti_ddos_package_id,omitempty"`
 
-	// The zone of anycast. Valid value: ANYCAST_ZONE_GLOBAL and ANYCAST_ZONE_OVERSEAS.
 	// The zone of anycast. Valid value: `ANYCAST_ZONE_GLOBAL` and `ANYCAST_ZONE_OVERSEAS`.
 	AnycastZone *string `json:"anycastZone,omitempty" tf:"anycast_zone,omitempty"`
 
-	// It has been deprecated from version 1.27.0. Indicates whether the anycast eip can be associated to a CLB.
 	// Indicates whether the anycast eip can be associated to a CLB.
 	ApplicableForClb *bool `json:"applicableForClb,omitempty" tf:"applicable_for_clb,omitempty"`
 
 	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
-	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
 	AutoRenewFlag *float64 `json:"autoRenewFlag,omitempty" tf:"auto_renew_flag,omitempty"`
 
-	// ID of bandwidth package, it will set when internet_charge_type is BANDWIDTH_PACKAGE.
 	// ID of bandwidth package, it will set when `internet_charge_type` is `BANDWIDTH_PACKAGE`.
 	BandwidthPackageID *string `json:"bandwidthPackageId,omitempty" tf:"bandwidth_package_id,omitempty"`
 
 	// CDC Unique ID.
-	// CDC Unique ID.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Network egress. It defaults to center_egress1. If you want to try the egress feature, please submit a ticket.
 	// Network egress. It defaults to `center_egress1`. If you want to try the egress feature, please [submit a ticket](https://console.cloud.tencent.com/workorder/category).
 	Egress *string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// The charge type of eip. Valid values: BANDWIDTH_PACKAGE, BANDWIDTH_POSTPAID_BY_HOUR, BANDWIDTH_PREPAID_BY_MONTH and TRAFFIC_POSTPAID_BY_HOUR.
 	// The charge type of eip. Valid values: `BANDWIDTH_PACKAGE`, `BANDWIDTH_POSTPAID_BY_HOUR`, `BANDWIDTH_PREPAID_BY_MONTH` and `TRAFFIC_POSTPAID_BY_HOUR`.
 	InternetChargeType *string `json:"internetChargeType,omitempty" tf:"internet_charge_type,omitempty"`
 
 	// The bandwidth limit of EIP, unit is Mbps.
-	// The bandwidth limit of EIP, unit is Mbps.
 	InternetMaxBandwidthOut *float64 `json:"internetMaxBandwidthOut,omitempty" tf:"internet_max_bandwidth_out,omitempty"`
 
-	// Internet service provider of eip. Valid value: BGP, CMCC, CTCC and CUCC.
 	// Internet service provider of eip. Valid value: `BGP`, `CMCC`, `CTCC` and `CUCC`.
 	InternetServiceProvider *string `json:"internetServiceProvider,omitempty" tf:"internet_service_provider,omitempty"`
 
 	// The name of eip.
-	// The name of eip.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Period of instance. Default value: 1. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. NOTES: must set when internet_charge_type is BANDWIDTH_PREPAID_BY_MONTH.
 	// Period of instance. Default value: `1`. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. NOTES: must set when `internet_charge_type` is `BANDWIDTH_PREPAID_BY_MONTH`.
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
 	// The tags of eip.
-	// The tags of eip.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// The type of eip. Valid value:  EIP and AnycastEIP and HighQualityEIP and AntiDDoSEIP. Default is EIP.
 	// The type of eip. Valid value:  `EIP` and `AnycastEIP` and `HighQualityEIP` and `AntiDDoSEIP`. Default is `EIP`.
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type EipObservation struct {
 
-	// ID of anti DDos package, it must set when type is AntiDDoSEIP.
 	// ID of anti DDos package, it must set when `type` is `AntiDDoSEIP`.
 	AntiDdosPackageID *string `json:"antiDdosPackageId,omitempty" tf:"anti_ddos_package_id,omitempty"`
 
-	// The zone of anycast. Valid value: ANYCAST_ZONE_GLOBAL and ANYCAST_ZONE_OVERSEAS.
 	// The zone of anycast. Valid value: `ANYCAST_ZONE_GLOBAL` and `ANYCAST_ZONE_OVERSEAS`.
 	AnycastZone *string `json:"anycastZone,omitempty" tf:"anycast_zone,omitempty"`
 
-	// It has been deprecated from version 1.27.0. Indicates whether the anycast eip can be associated to a CLB.
 	// Indicates whether the anycast eip can be associated to a CLB.
 	ApplicableForClb *bool `json:"applicableForClb,omitempty" tf:"applicable_for_clb,omitempty"`
 
 	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
-	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
 	AutoRenewFlag *float64 `json:"autoRenewFlag,omitempty" tf:"auto_renew_flag,omitempty"`
 
-	// ID of bandwidth package, it will set when internet_charge_type is BANDWIDTH_PACKAGE.
 	// ID of bandwidth package, it will set when `internet_charge_type` is `BANDWIDTH_PACKAGE`.
 	BandwidthPackageID *string `json:"bandwidthPackageId,omitempty" tf:"bandwidth_package_id,omitempty"`
 
 	// CDC Unique ID.
-	// CDC Unique ID.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Network egress. It defaults to center_egress1. If you want to try the egress feature, please submit a ticket.
 	// Network egress. It defaults to `center_egress1`. If you want to try the egress feature, please [submit a ticket](https://console.cloud.tencent.com/workorder/category).
 	Egress *string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The charge type of eip. Valid values: BANDWIDTH_PACKAGE, BANDWIDTH_POSTPAID_BY_HOUR, BANDWIDTH_PREPAID_BY_MONTH and TRAFFIC_POSTPAID_BY_HOUR.
 	// The charge type of eip. Valid values: `BANDWIDTH_PACKAGE`, `BANDWIDTH_POSTPAID_BY_HOUR`, `BANDWIDTH_PREPAID_BY_MONTH` and `TRAFFIC_POSTPAID_BY_HOUR`.
 	InternetChargeType *string `json:"internetChargeType,omitempty" tf:"internet_charge_type,omitempty"`
 
 	// The bandwidth limit of EIP, unit is Mbps.
-	// The bandwidth limit of EIP, unit is Mbps.
 	InternetMaxBandwidthOut *float64 `json:"internetMaxBandwidthOut,omitempty" tf:"internet_max_bandwidth_out,omitempty"`
 
-	// Internet service provider of eip. Valid value: BGP, CMCC, CTCC and CUCC.
 	// Internet service provider of eip. Valid value: `BGP`, `CMCC`, `CTCC` and `CUCC`.
 	InternetServiceProvider *string `json:"internetServiceProvider,omitempty" tf:"internet_service_provider,omitempty"`
 
 	// The name of eip.
-	// The name of eip.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Period of instance. Default value: 1. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. NOTES: must set when internet_charge_type is BANDWIDTH_PREPAID_BY_MONTH.
 	// Period of instance. Default value: `1`. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. NOTES: must set when `internet_charge_type` is `BANDWIDTH_PREPAID_BY_MONTH`.
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
 	// The elastic IP address.
-	// The elastic IP address.
 	PublicIP *string `json:"publicIp,omitempty" tf:"public_ip,omitempty"`
 
-	// The EIP current status.
 	// The EIP current status.
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
 	// The tags of eip.
-	// The tags of eip.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// The type of eip. Valid value:  EIP and AnycastEIP and HighQualityEIP and AntiDDoSEIP. Default is EIP.
 	// The type of eip. Valid value:  `EIP` and `AnycastEIP` and `HighQualityEIP` and `AntiDDoSEIP`. Default is `EIP`.
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 }
 
 type EipParameters struct {
 
-	// ID of anti DDos package, it must set when type is AntiDDoSEIP.
 	// ID of anti DDos package, it must set when `type` is `AntiDDoSEIP`.
 	// +kubebuilder:validation:Optional
 	AntiDdosPackageID *string `json:"antiDdosPackageId,omitempty" tf:"anti_ddos_package_id,omitempty"`
 
-	// The zone of anycast. Valid value: ANYCAST_ZONE_GLOBAL and ANYCAST_ZONE_OVERSEAS.
 	// The zone of anycast. Valid value: `ANYCAST_ZONE_GLOBAL` and `ANYCAST_ZONE_OVERSEAS`.
 	// +kubebuilder:validation:Optional
 	AnycastZone *string `json:"anycastZone,omitempty" tf:"anycast_zone,omitempty"`
 
-	// It has been deprecated from version 1.27.0. Indicates whether the anycast eip can be associated to a CLB.
 	// Indicates whether the anycast eip can be associated to a CLB.
 	// +kubebuilder:validation:Optional
 	ApplicableForClb *bool `json:"applicableForClb,omitempty" tf:"applicable_for_clb,omitempty"`
 
 	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
-	// Auto renew flag.  0 - default state (manual renew); 1 - automatic renew; 2 - explicit no automatic renew. NOTES: Only supported prepaid EIP.
 	// +kubebuilder:validation:Optional
 	AutoRenewFlag *float64 `json:"autoRenewFlag,omitempty" tf:"auto_renew_flag,omitempty"`
 
-	// ID of bandwidth package, it will set when internet_charge_type is BANDWIDTH_PACKAGE.
 	// ID of bandwidth package, it will set when `internet_charge_type` is `BANDWIDTH_PACKAGE`.
 	// +kubebuilder:validation:Optional
 	BandwidthPackageID *string `json:"bandwidthPackageId,omitempty" tf:"bandwidth_package_id,omitempty"`
 
 	// CDC Unique ID.
-	// CDC Unique ID.
 	// +kubebuilder:validation:Optional
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Network egress. It defaults to center_egress1. If you want to try the egress feature, please submit a ticket.
 	// Network egress. It defaults to `center_egress1`. If you want to try the egress feature, please [submit a ticket](https://console.cloud.tencent.com/workorder/category).
 	// +kubebuilder:validation:Optional
 	Egress *string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// The charge type of eip. Valid values: BANDWIDTH_PACKAGE, BANDWIDTH_POSTPAID_BY_HOUR, BANDWIDTH_PREPAID_BY_MONTH and TRAFFIC_POSTPAID_BY_HOUR.
 	// The charge type of eip. Valid values: `BANDWIDTH_PACKAGE`, `BANDWIDTH_POSTPAID_BY_HOUR`, `BANDWIDTH_PREPAID_BY_MONTH` and `TRAFFIC_POSTPAID_BY_HOUR`.
 	// +kubebuilder:validation:Optional
 	InternetChargeType *string `json:"internetChargeType,omitempty" tf:"internet_charge_type,omitempty"`
 
 	// The bandwidth limit of EIP, unit is Mbps.
-	// The bandwidth limit of EIP, unit is Mbps.
 	// +kubebuilder:validation:Optional
 	InternetMaxBandwidthOut *float64 `json:"internetMaxBandwidthOut,omitempty" tf:"internet_max_bandwidth_out,omitempty"`
 
-	// Internet service provider of eip. Valid value: BGP, CMCC, CTCC and CUCC.
 	// Internet service provider of eip. Valid value: `BGP`, `CMCC`, `CTCC` and `CUCC`.
 	// +kubebuilder:validation:Optional
 	InternetServiceProvider *string `json:"internetServiceProvider,omitempty" tf:"internet_service_provider,omitempty"`
 
 	// The name of eip.
-	// The name of eip.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Period of instance. Default value: 1. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. NOTES: must set when internet_charge_type is BANDWIDTH_PREPAID_BY_MONTH.
 	// Period of instance. Default value: `1`. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. NOTES: must set when `internet_charge_type` is `BANDWIDTH_PREPAID_BY_MONTH`.
 	// +kubebuilder:validation:Optional
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
 	// The tags of eip.
-	// The tags of eip.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// The type of eip. Valid value:  EIP and AnycastEIP and HighQualityEIP and AntiDDoSEIP. Default is EIP.
 	// The type of eip. Valid value:  `EIP` and `AnycastEIP` and `HighQualityEIP` and `AntiDDoSEIP`. Default is `EIP`.
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
@@ -245,7 +200,7 @@ type EipStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Eip is the Schema for the Eips API. Provides an EIP resource.
+// Eip is the Schema for the Eips API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

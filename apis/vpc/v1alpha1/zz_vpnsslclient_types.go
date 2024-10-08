@@ -16,24 +16,18 @@ import (
 type VPNSSLClientInitParameters struct {
 
 	// The name of ssl vpn client to be created.
-	// The name of ssl vpn client to be created.
 	SSLVPNClientName *string `json:"sslVpnClientName,omitempty" tf:"ssl_vpn_client_name,omitempty"`
 
-	// VPN ssl server id.
 	// VPN ssl server id.
 	SSLVPNServerID *string `json:"sslVpnServerId,omitempty" tf:"ssl_vpn_server_id,omitempty"`
 }
 
 type VPNSSLClientObservation struct {
-
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// The name of ssl vpn client to be created.
-	// The name of ssl vpn client to be created.
 	SSLVPNClientName *string `json:"sslVpnClientName,omitempty" tf:"ssl_vpn_client_name,omitempty"`
 
-	// VPN ssl server id.
 	// VPN ssl server id.
 	SSLVPNServerID *string `json:"sslVpnServerId,omitempty" tf:"ssl_vpn_server_id,omitempty"`
 }
@@ -41,11 +35,9 @@ type VPNSSLClientObservation struct {
 type VPNSSLClientParameters struct {
 
 	// The name of ssl vpn client to be created.
-	// The name of ssl vpn client to be created.
 	// +kubebuilder:validation:Optional
 	SSLVPNClientName *string `json:"sslVpnClientName,omitempty" tf:"ssl_vpn_client_name,omitempty"`
 
-	// VPN ssl server id.
 	// VPN ssl server id.
 	// +kubebuilder:validation:Optional
 	SSLVPNServerID *string `json:"sslVpnServerId,omitempty" tf:"ssl_vpn_server_id,omitempty"`
@@ -78,7 +70,7 @@ type VPNSSLClientStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPNSSLClient is the Schema for the VPNSSLClients API. Provide a resource to create a VPN SSL Client.
+// VPNSSLClient is the Schema for the VPNSSLClients API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

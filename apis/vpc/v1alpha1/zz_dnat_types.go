@@ -16,18 +16,14 @@ import (
 type DnatInitParameters struct {
 
 	// Description of the NAT forward.
-	// Description of the NAT forward.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Network address of the EIP.
 	// Network address of the EIP.
 	ElasticIP *string `json:"elasticIp,omitempty" tf:"elastic_ip,omitempty"`
 
 	// Port of the EIP.
-	// Port of the EIP.
 	ElasticPort *string `json:"elasticPort,omitempty" tf:"elastic_port,omitempty"`
 
-	// ID of the NAT gateway.
 	// ID of the NAT gateway.
 	// +crossplane:generate:reference:type=NatGateway
 	NATID *string `json:"natId,omitempty" tf:"nat_id,omitempty"`
@@ -41,18 +37,14 @@ type DnatInitParameters struct {
 	NATIDSelector *v1.Selector `json:"natIdSelector,omitempty" tf:"-"`
 
 	// Network address of the backend service.
-	// Network address of the backend service.
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 
 	// Port of intranet.
-	// Port of intranet.
 	PrivatePort *string `json:"privatePort,omitempty" tf:"private_port,omitempty"`
 
-	// Type of the network protocol. Valid value: TCP and UDP.
 	// Type of the network protocol. Valid value: `TCP` and `UDP`.
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// ID of the VPC.
 	// ID of the VPC.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -69,37 +61,28 @@ type DnatInitParameters struct {
 type DnatObservation struct {
 
 	// Description of the NAT forward.
-	// Description of the NAT forward.
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Network address of the EIP.
 	// Network address of the EIP.
 	ElasticIP *string `json:"elasticIp,omitempty" tf:"elastic_ip,omitempty"`
 
 	// Port of the EIP.
-	// Port of the EIP.
 	ElasticPort *string `json:"elasticPort,omitempty" tf:"elastic_port,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// ID of the NAT gateway.
 	// ID of the NAT gateway.
 	NATID *string `json:"natId,omitempty" tf:"nat_id,omitempty"`
 
 	// Network address of the backend service.
-	// Network address of the backend service.
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 
 	// Port of intranet.
-	// Port of intranet.
 	PrivatePort *string `json:"privatePort,omitempty" tf:"private_port,omitempty"`
 
-	// Type of the network protocol. Valid value: TCP and UDP.
 	// Type of the network protocol. Valid value: `TCP` and `UDP`.
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// ID of the VPC.
 	// ID of the VPC.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
@@ -107,21 +90,17 @@ type DnatObservation struct {
 type DnatParameters struct {
 
 	// Description of the NAT forward.
-	// Description of the NAT forward.
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
-	// Network address of the EIP.
 	// Network address of the EIP.
 	// +kubebuilder:validation:Optional
 	ElasticIP *string `json:"elasticIp,omitempty" tf:"elastic_ip,omitempty"`
 
 	// Port of the EIP.
-	// Port of the EIP.
 	// +kubebuilder:validation:Optional
 	ElasticPort *string `json:"elasticPort,omitempty" tf:"elastic_port,omitempty"`
 
-	// ID of the NAT gateway.
 	// ID of the NAT gateway.
 	// +crossplane:generate:reference:type=NatGateway
 	// +kubebuilder:validation:Optional
@@ -136,21 +115,17 @@ type DnatParameters struct {
 	NATIDSelector *v1.Selector `json:"natIdSelector,omitempty" tf:"-"`
 
 	// Network address of the backend service.
-	// Network address of the backend service.
 	// +kubebuilder:validation:Optional
 	PrivateIP *string `json:"privateIp,omitempty" tf:"private_ip,omitempty"`
 
 	// Port of intranet.
-	// Port of intranet.
 	// +kubebuilder:validation:Optional
 	PrivatePort *string `json:"privatePort,omitempty" tf:"private_port,omitempty"`
 
-	// Type of the network protocol. Valid value: TCP and UDP.
 	// Type of the network protocol. Valid value: `TCP` and `UDP`.
 	// +kubebuilder:validation:Optional
 	Protocol *string `json:"protocol,omitempty" tf:"protocol,omitempty"`
 
-	// ID of the VPC.
 	// ID of the VPC.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -192,7 +167,7 @@ type DnatStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// Dnat is the Schema for the Dnats API. Provides a resource to create a NAT forwarding.
+// Dnat is the Schema for the Dnats API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

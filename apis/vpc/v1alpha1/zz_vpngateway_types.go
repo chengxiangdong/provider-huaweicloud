@@ -15,44 +15,34 @@ import (
 
 type VPNGatewayInitParameters struct {
 
-	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is PREPAID, bandwidth degradation operation is unsupported.
 	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is `PREPAID`, bandwidth degradation operation is unsupported.
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
 	// CDC instance ID.
-	// CDC instance ID.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Charge Type of the VPN gateway. Valid value: PREPAID, POSTPAID_BY_HOUR. The default is POSTPAID_BY_HOUR.
 	// Charge Type of the VPN gateway. Valid value: `PREPAID`, `POSTPAID_BY_HOUR`. The default is `POSTPAID_BY_HOUR`.
 	ChargeType *string `json:"chargeType,omitempty" tf:"charge_type,omitempty"`
 
 	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
-	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
 	MaxConnection *float64 `json:"maxConnection,omitempty" tf:"max_connection,omitempty"`
 
 	// Name of the VPN gateway. The length of character is limited to 1-60.
-	// Name of the VPN gateway. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Period of instance to be prepaid. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on IPSEC vpn gateway.
 	// Period of instance to be prepaid. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on `IPSEC` vpn gateway.
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
-	// Flag indicates whether to renew or not. Valid value: NOTIFY_AND_AUTO_RENEW, NOTIFY_AND_MANUAL_RENEW.
 	// Flag indicates whether to renew or not. Valid value: `NOTIFY_AND_AUTO_RENEW`, `NOTIFY_AND_MANUAL_RENEW`.
 	PrepaidRenewFlag *string `json:"prepaidRenewFlag,omitempty" tf:"prepaid_renew_flag,omitempty"`
 
 	// A list of tags used to associate different resources.
-	// A list of tags used to associate different resources.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Type of gateway instance, Default is IPSEC. Valid value: IPSEC, SSL, CCN and SSL_CCN.
 	// Type of gateway instance, Default is `IPSEC`. Valid value: `IPSEC`, `SSL`, `CCN` and `SSL_CCN`.
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
-	// ID of the VPC. Required if vpn gateway is not in CCN or SSL_CCN type, and doesn't make sense for CCN or SSL_CCN vpn gateway.
 	// ID of the VPC. Required if vpn gateway is not in `CCN` or `SSL_CCN` type, and doesn't make sense for `CCN` or `SSL_CCN` vpn gateway.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -65,139 +55,109 @@ type VPNGatewayInitParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// Zone of the VPN gateway.
 	// Zone of the VPN gateway.
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type VPNGatewayObservation struct {
 
-	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is PREPAID, bandwidth degradation operation is unsupported.
 	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is `PREPAID`, bandwidth degradation operation is unsupported.
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
 	// CDC instance ID.
-	// CDC instance ID.
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Charge Type of the VPN gateway. Valid value: PREPAID, POSTPAID_BY_HOUR. The default is POSTPAID_BY_HOUR.
 	// Charge Type of the VPN gateway. Valid value: `PREPAID`, `POSTPAID_BY_HOUR`. The default is `POSTPAID_BY_HOUR`.
 	ChargeType *string `json:"chargeType,omitempty" tf:"charge_type,omitempty"`
 
 	// Create time of the VPN gateway.
-	// Create time of the VPN gateway.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// Expired time of the VPN gateway when charge type is PREPAID.
 	// Expired time of the VPN gateway when charge type is `PREPAID`.
 	ExpiredTime *string `json:"expiredTime,omitempty" tf:"expired_time,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Indicates whether ip address is blocked.
 	// Indicates whether ip address is blocked.
 	IsAddressBlocked *bool `json:"isAddressBlocked,omitempty" tf:"is_address_blocked,omitempty"`
 
 	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
-	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
 	MaxConnection *float64 `json:"maxConnection,omitempty" tf:"max_connection,omitempty"`
 
 	// Name of the VPN gateway. The length of character is limited to 1-60.
-	// Name of the VPN gateway. The length of character is limited to 1-60.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// The plan of new purchase. Valid value: PREPAID_TO_POSTPAID.
 	// The plan of new purchase. Valid value: `PREPAID_TO_POSTPAID`.
 	NewPurchasePlan *string `json:"newPurchasePlan,omitempty" tf:"new_purchase_plan,omitempty"`
 
-	// Period of instance to be prepaid. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on IPSEC vpn gateway.
 	// Period of instance to be prepaid. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on `IPSEC` vpn gateway.
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
-	// Flag indicates whether to renew or not. Valid value: NOTIFY_AND_AUTO_RENEW, NOTIFY_AND_MANUAL_RENEW.
 	// Flag indicates whether to renew or not. Valid value: `NOTIFY_AND_AUTO_RENEW`, `NOTIFY_AND_MANUAL_RENEW`.
 	PrepaidRenewFlag *string `json:"prepaidRenewFlag,omitempty" tf:"prepaid_renew_flag,omitempty"`
 
 	// Public IP of the VPN gateway.
-	// Public IP of the VPN gateway.
 	PublicIPAddress *string `json:"publicIpAddress,omitempty" tf:"public_ip_address,omitempty"`
 
-	// Restrict state of gateway. Valid value: PRETECIVELY_ISOLATED, NORMAL.
 	// Restrict state of gateway. Valid value: `PRETECIVELY_ISOLATED`, `NORMAL`.
 	RestrictState *string `json:"restrictState,omitempty" tf:"restrict_state,omitempty"`
 
-	// State of the VPN gateway. Valid value: PENDING, DELETING, AVAILABLE.
 	// State of the VPN gateway. Valid value: `PENDING`, `DELETING`, `AVAILABLE`.
 	State *string `json:"state,omitempty" tf:"state,omitempty"`
 
 	// A list of tags used to associate different resources.
-	// A list of tags used to associate different resources.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Type of gateway instance, Default is IPSEC. Valid value: IPSEC, SSL, CCN and SSL_CCN.
 	// Type of gateway instance, Default is `IPSEC`. Valid value: `IPSEC`, `SSL`, `CCN` and `SSL_CCN`.
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
-	// ID of the VPC. Required if vpn gateway is not in CCN or SSL_CCN type, and doesn't make sense for CCN or SSL_CCN vpn gateway.
 	// ID of the VPC. Required if vpn gateway is not in `CCN` or `SSL_CCN` type, and doesn't make sense for `CCN` or `SSL_CCN` vpn gateway.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	// Zone of the VPN gateway.
 	// Zone of the VPN gateway.
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
 }
 
 type VPNGatewayParameters struct {
 
-	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is PREPAID, bandwidth degradation operation is unsupported.
 	// The maximum public network output bandwidth of VPN gateway (unit: Mbps), the available values include: 5,10,20,50,100,200,500,1000. Default is 5. When charge type is `PREPAID`, bandwidth degradation operation is unsupported.
 	// +kubebuilder:validation:Optional
 	Bandwidth *float64 `json:"bandwidth,omitempty" tf:"bandwidth,omitempty"`
 
 	// CDC instance ID.
-	// CDC instance ID.
 	// +kubebuilder:validation:Optional
 	CdcID *string `json:"cdcId,omitempty" tf:"cdc_id,omitempty"`
 
-	// Charge Type of the VPN gateway. Valid value: PREPAID, POSTPAID_BY_HOUR. The default is POSTPAID_BY_HOUR.
 	// Charge Type of the VPN gateway. Valid value: `PREPAID`, `POSTPAID_BY_HOUR`. The default is `POSTPAID_BY_HOUR`.
 	// +kubebuilder:validation:Optional
 	ChargeType *string `json:"chargeType,omitempty" tf:"charge_type,omitempty"`
 
 	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
-	// Maximum number of connected clients allowed for the SSL VPN gateway. Valid values: [5, 10, 20, 50, 100]. This parameter is only required for SSL VPN gateways.
 	// +kubebuilder:validation:Optional
 	MaxConnection *float64 `json:"maxConnection,omitempty" tf:"max_connection,omitempty"`
 
 	// Name of the VPN gateway. The length of character is limited to 1-60.
-	// Name of the VPN gateway. The length of character is limited to 1-60.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Period of instance to be prepaid. Valid value: 1, 2, 3, 4, 6, 7, 8, 9, 12, 24, 36. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on IPSEC vpn gateway.
 	// Period of instance to be prepaid. Valid value: `1`, `2`, `3`, `4`, `6`, `7`, `8`, `9`, `12`, `24`, `36`. The unit is month. Caution: when this para and renew_flag para are valid, the request means to renew several months more pre-paid period. This para can only be changed on `IPSEC` vpn gateway.
 	// +kubebuilder:validation:Optional
 	PrepaidPeriod *float64 `json:"prepaidPeriod,omitempty" tf:"prepaid_period,omitempty"`
 
-	// Flag indicates whether to renew or not. Valid value: NOTIFY_AND_AUTO_RENEW, NOTIFY_AND_MANUAL_RENEW.
 	// Flag indicates whether to renew or not. Valid value: `NOTIFY_AND_AUTO_RENEW`, `NOTIFY_AND_MANUAL_RENEW`.
 	// +kubebuilder:validation:Optional
 	PrepaidRenewFlag *string `json:"prepaidRenewFlag,omitempty" tf:"prepaid_renew_flag,omitempty"`
 
 	// A list of tags used to associate different resources.
-	// A list of tags used to associate different resources.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// Type of gateway instance, Default is IPSEC. Valid value: IPSEC, SSL, CCN and SSL_CCN.
 	// Type of gateway instance, Default is `IPSEC`. Valid value: `IPSEC`, `SSL`, `CCN` and `SSL_CCN`.
 	// +kubebuilder:validation:Optional
 	Type *string `json:"type,omitempty" tf:"type,omitempty"`
 
-	// ID of the VPC. Required if vpn gateway is not in CCN or SSL_CCN type, and doesn't make sense for CCN or SSL_CCN vpn gateway.
 	// ID of the VPC. Required if vpn gateway is not in `CCN` or `SSL_CCN` type, and doesn't make sense for `CCN` or `SSL_CCN` vpn gateway.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -211,7 +171,6 @@ type VPNGatewayParameters struct {
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 
-	// Zone of the VPN gateway.
 	// Zone of the VPN gateway.
 	// +kubebuilder:validation:Optional
 	Zone *string `json:"zone,omitempty" tf:"zone,omitempty"`
@@ -244,7 +203,7 @@ type VPNGatewayStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPNGateway is the Schema for the VPNGateways API. Provides a resource to create a VPN gateway.
+// VPNGateway is the Schema for the VPNGateways API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

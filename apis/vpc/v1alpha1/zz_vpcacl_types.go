@@ -15,24 +15,19 @@ import (
 
 type VPCAclInitParameters struct {
 
-	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// Name of the network ACL.
-	// Name of the network ACL.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the vpc acl.
 	// Tags of the vpc acl.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC instance.
 	// ID of the VPC instance.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -49,58 +44,46 @@ type VPCAclInitParameters struct {
 type VPCAclObservation struct {
 
 	// Creation time of ACL.
-	// Creation time of ACL.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// Name of the network ACL.
-	// Name of the network ACL.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the vpc acl.
 	// Tags of the vpc acl.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC instance.
 	// ID of the VPC instance.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
 
 type VPCAclParameters struct {
 
-	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Egress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	// +kubebuilder:validation:Optional
 	Egress []*string `json:"egress,omitempty" tf:"egress,omitempty"`
 
-	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is ACCEPT and DROP. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is 80, 80-90 or ALL. The available value of 'protocol' is TCP, UDP, ICMP and ALL. When 'protocol' is ICMP or ALL, the 'port' must be ALL.
 	// Ingress rules. A rule must match the following format: [action]#[cidr_ip]#[port]#[protocol]. The available value of 'action' is `ACCEPT` and `DROP`. The 'cidr_ip' must be an IP address network or segment. The 'port' valid format is `80`, `80-90` or `ALL`. The available value of 'protocol' is `TCP`, `UDP`, `ICMP` and `ALL`. When 'protocol' is `ICMP` or `ALL`, the 'port' must be `ALL`.
 	// +kubebuilder:validation:Optional
 	Ingress []*string `json:"ingress,omitempty" tf:"ingress,omitempty"`
 
 	// Name of the network ACL.
-	// Name of the network ACL.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the vpc acl.
 	// Tags of the vpc acl.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 
-	// ID of the VPC instance.
 	// ID of the VPC instance.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -142,7 +125,7 @@ type VPCAclStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPCAcl is the Schema for the VPCAcls API. Provide a resource to create a VPC ACL instance.
+// VPCAcl is the Schema for the VPCAcls API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

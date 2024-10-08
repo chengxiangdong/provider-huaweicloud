@@ -15,29 +15,23 @@ import (
 
 type VPCInitParameters struct {
 
-	// List of Assistant CIDR, NOTE: Only NORMAL typed CIDRs included, check the Docker CIDR by readonly assistant_docker_cidrs.
 	// List of Assistant CIDR, NOTE: Only `NORMAL` typed CIDRs included, check the Docker CIDR by readonly `assistant_docker_cidrs`.
 	// +listType=set
 	AssistantCidrs []*string `json:"assistantCidrs,omitempty" tf:"assistant_cidrs,omitempty"`
 
 	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
-	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
-	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// +listType=set
 	DNSServers []*string `json:"dnsServers,omitempty" tf:"dns_servers,omitempty"`
 
 	// Indicates whether VPC multicast is enabled. The default value is 'true'.
-	// Indicates whether VPC multicast is enabled. The default value is 'true'.
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
 	// The name of the VPC.
-	// The name of the VPC.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the VPC.
 	// Tags of the VPC.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -45,48 +39,37 @@ type VPCInitParameters struct {
 
 type VPCObservation struct {
 
-	// List of Assistant CIDR, NOTE: Only NORMAL typed CIDRs included, check the Docker CIDR by readonly assistant_docker_cidrs.
 	// List of Assistant CIDR, NOTE: Only `NORMAL` typed CIDRs included, check the Docker CIDR by readonly `assistant_docker_cidrs`.
 	// +listType=set
 	AssistantCidrs []*string `json:"assistantCidrs,omitempty" tf:"assistant_cidrs,omitempty"`
 
 	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
-	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// Creation time of VPC.
-	// Creation time of VPC.
 	CreateTime *string `json:"createTime,omitempty" tf:"create_time,omitempty"`
 
-	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// +listType=set
 	DNSServers []*string `json:"dnsServers,omitempty" tf:"dns_servers,omitempty"`
 
 	// Default route table id, which created automatically after VPC create.
-	// Default route table id, which created automatically after VPC create.
 	DefaultRouteTableID *string `json:"defaultRouteTableId,omitempty" tf:"default_route_table_id,omitempty"`
 
 	// List of Docker Assistant CIDR.
-	// List of Docker Assistant CIDR.
 	DockerAssistantCidrs []*string `json:"dockerAssistantCidrs,omitempty" tf:"docker_assistant_cidrs,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// Indicates whether it is the default VPC for this region.
 	// Indicates whether it is the default VPC for this region.
 	IsDefault *bool `json:"isDefault,omitempty" tf:"is_default,omitempty"`
 
 	// Indicates whether VPC multicast is enabled. The default value is 'true'.
-	// Indicates whether VPC multicast is enabled. The default value is 'true'.
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
 	// The name of the VPC.
-	// The name of the VPC.
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the VPC.
 	// Tags of the VPC.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -94,34 +77,28 @@ type VPCObservation struct {
 
 type VPCParameters struct {
 
-	// List of Assistant CIDR, NOTE: Only NORMAL typed CIDRs included, check the Docker CIDR by readonly assistant_docker_cidrs.
 	// List of Assistant CIDR, NOTE: Only `NORMAL` typed CIDRs included, check the Docker CIDR by readonly `assistant_docker_cidrs`.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	AssistantCidrs []*string `json:"assistantCidrs,omitempty" tf:"assistant_cidrs,omitempty"`
 
 	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
-	// A network address block which should be a subnet of the three internal network segments (10.0.0.0/16, 172.16.0.0/12 and 192.168.0.0/16).
 	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
-	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// The DNS server list of the VPC. And you can specify 0 to 5 servers to this list.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	DNSServers []*string `json:"dnsServers,omitempty" tf:"dns_servers,omitempty"`
 
 	// Indicates whether VPC multicast is enabled. The default value is 'true'.
-	// Indicates whether VPC multicast is enabled. The default value is 'true'.
 	// +kubebuilder:validation:Optional
 	IsMulticast *bool `json:"isMulticast,omitempty" tf:"is_multicast,omitempty"`
 
 	// The name of the VPC.
-	// The name of the VPC.
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
-	// Tags of the VPC.
 	// Tags of the VPC.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
@@ -155,7 +132,7 @@ type VPCStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPC is the Schema for the VPCs API. Provide a resource to create a VPC.
+// VPC is the Schema for the VPCs API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

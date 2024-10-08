@@ -16,18 +16,14 @@ import (
 type RouteEntryInitParameters struct {
 
 	// The RouteEntry's target network segment.
-	// The RouteEntry's target network segment.
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// The route entry's next hub. CVM instance ID or VPC router interface ID.
-	// The route entry's next hub. CVM instance ID or VPC router interface ID.
 	NextHub *string `json:"nextHub,omitempty" tf:"next_hub,omitempty"`
 
-	// The next hop type. Valid values: public_gateway,vpn_gateway,sslvpn_gateway,dc_gateway,peering_connection,nat_gateway,havip,local_gateway and instance. instance points to CVM Instance.
 	// The next hop type. Valid values: `public_gateway`,`vpn_gateway`,`sslvpn_gateway`,`dc_gateway`,`peering_connection`,`nat_gateway`,`havip`,`local_gateway` and `instance`. `instance` points to CVM Instance.
 	NextType *string `json:"nextType,omitempty" tf:"next_type,omitempty"`
 
-	// The ID of the route table.
 	// The ID of the route table.
 	// +crossplane:generate:reference:type=RouteTable
 	RouteTableID *string `json:"routeTableId,omitempty" tf:"route_table_id,omitempty"`
@@ -40,7 +36,6 @@ type RouteEntryInitParameters struct {
 	// +kubebuilder:validation:Optional
 	RouteTableIDSelector *v1.Selector `json:"routeTableIdSelector,omitempty" tf:"-"`
 
-	// The VPC ID.
 	// The VPC ID.
 	// +crossplane:generate:reference:type=VPC
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
@@ -57,25 +52,19 @@ type RouteEntryInitParameters struct {
 type RouteEntryObservation struct {
 
 	// The RouteEntry's target network segment.
-	// The RouteEntry's target network segment.
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
-	// ID of the resource.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
 	// The route entry's next hub. CVM instance ID or VPC router interface ID.
-	// The route entry's next hub. CVM instance ID or VPC router interface ID.
 	NextHub *string `json:"nextHub,omitempty" tf:"next_hub,omitempty"`
 
-	// The next hop type. Valid values: public_gateway,vpn_gateway,sslvpn_gateway,dc_gateway,peering_connection,nat_gateway,havip,local_gateway and instance. instance points to CVM Instance.
 	// The next hop type. Valid values: `public_gateway`,`vpn_gateway`,`sslvpn_gateway`,`dc_gateway`,`peering_connection`,`nat_gateway`,`havip`,`local_gateway` and `instance`. `instance` points to CVM Instance.
 	NextType *string `json:"nextType,omitempty" tf:"next_type,omitempty"`
 
 	// The ID of the route table.
-	// The ID of the route table.
 	RouteTableID *string `json:"routeTableId,omitempty" tf:"route_table_id,omitempty"`
 
-	// The VPC ID.
 	// The VPC ID.
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 }
@@ -83,21 +72,17 @@ type RouteEntryObservation struct {
 type RouteEntryParameters struct {
 
 	// The RouteEntry's target network segment.
-	// The RouteEntry's target network segment.
 	// +kubebuilder:validation:Optional
 	CidrBlock *string `json:"cidrBlock,omitempty" tf:"cidr_block,omitempty"`
 
 	// The route entry's next hub. CVM instance ID or VPC router interface ID.
-	// The route entry's next hub. CVM instance ID or VPC router interface ID.
 	// +kubebuilder:validation:Optional
 	NextHub *string `json:"nextHub,omitempty" tf:"next_hub,omitempty"`
 
-	// The next hop type. Valid values: public_gateway,vpn_gateway,sslvpn_gateway,dc_gateway,peering_connection,nat_gateway,havip,local_gateway and instance. instance points to CVM Instance.
 	// The next hop type. Valid values: `public_gateway`,`vpn_gateway`,`sslvpn_gateway`,`dc_gateway`,`peering_connection`,`nat_gateway`,`havip`,`local_gateway` and `instance`. `instance` points to CVM Instance.
 	// +kubebuilder:validation:Optional
 	NextType *string `json:"nextType,omitempty" tf:"next_type,omitempty"`
 
-	// The ID of the route table.
 	// The ID of the route table.
 	// +crossplane:generate:reference:type=RouteTable
 	// +kubebuilder:validation:Optional
@@ -111,7 +96,6 @@ type RouteEntryParameters struct {
 	// +kubebuilder:validation:Optional
 	RouteTableIDSelector *v1.Selector `json:"routeTableIdSelector,omitempty" tf:"-"`
 
-	// The VPC ID.
 	// The VPC ID.
 	// +crossplane:generate:reference:type=VPC
 	// +kubebuilder:validation:Optional
@@ -153,7 +137,7 @@ type RouteEntryStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// RouteEntry is the Schema for the RouteEntrys API. Provides a resource to create a routing entry in a VPC routing table.
+// RouteEntry is the Schema for the RouteEntrys API. <no value>
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
