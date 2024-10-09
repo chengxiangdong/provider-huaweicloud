@@ -13,8 +13,8 @@ TERRAFORM_VERSION_VALID := $(shell [ "$(TERRAFORM_VERSION)" = "`printf "$(TERRAF
 export TERRAFORM_VERSION ?= 1.2.1
 
 export TERRAFORM_PROVIDER_SOURCE ?= huaweicloud/huaweicloud
-export TERRAFORM_PROVIDER_REPO ?= https://github.com/huaweicloud/terraform-provider-huaweicloud.git
-export TERRAFORM_PROVIDER_VERSION ?= 1.60.1
+export TERRAFORM_PROVIDER_REPO ?= https://github.com/huaweicloud/terraform-provider-huaweicloud
+export TERRAFORM_PROVIDER_VERSION ?= 1.69.0
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-huaweicloud
 export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX ?= https://github.com/huaweicloud/$(TERRAFORM_PROVIDER_DOWNLOAD_NAME)/releases/download/$(TERRAFORM_PROVIDER_VERSION)
 export TERRAFORM_NATIVE_PROVIDER_BINARY ?= $(TERRAFORM_PROVIDER_DOWNLOAD_NAME)_$(TERRAFORM_PROVIDER_VERSION)
