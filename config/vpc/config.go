@@ -2,7 +2,7 @@ package vpc
 
 import "github.com/crossplane/upjet/pkg/config"
 
-const shortGroupVpc = "VPC"
+const shortGroupVpc = "vpc"
 
 // Configure configures individual resources by adding custom ResourceConfigurators.
 func Configure(p *config.Provider) {

@@ -76,15 +76,15 @@ type SubnetInitParameters struct {
 
 	// Specifies the ID of the VPC to which the subnet belongs. Changing this creates
 	// a new subnet.
-	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/VPC/v1alpha1.VPC
+	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/vpc/v1alpha1.VPC
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	// Reference to a VPC in VPC to populate vpcId.
+	// Reference to a VPC in vpc to populate vpcId.
 	// +kubebuilder:validation:Optional
 	VPCIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
-	// Selector for a VPC in VPC to populate vpcId.
+	// Selector for a VPC in vpc to populate vpcId.
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
@@ -251,16 +251,16 @@ type SubnetParameters struct {
 
 	// Specifies the ID of the VPC to which the subnet belongs. Changing this creates
 	// a new subnet.
-	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/VPC/v1alpha1.VPC
+	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/vpc/v1alpha1.VPC
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	VPCID *string `json:"vpcId,omitempty" tf:"vpc_id,omitempty"`
 
-	// Reference to a VPC in VPC to populate vpcId.
+	// Reference to a VPC in vpc to populate vpcId.
 	// +kubebuilder:validation:Optional
 	VPCIDRef *v1.Reference `json:"vpcIdRef,omitempty" tf:"-"`
 
-	// Selector for a VPC in VPC to populate vpcId.
+	// Selector for a VPC in vpc to populate vpcId.
 	// +kubebuilder:validation:Optional
 	VPCIDSelector *v1.Selector `json:"vpcIdSelector,omitempty" tf:"-"`
 }
