@@ -4,9 +4,9 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.14.0
-  name: providerconfigusages.huaweicloud.upbound.io
+  name: providerconfigusages.huaweicloud.crossplane.io
 spec:
-  group: huaweicloud.upbound.io
+  group: huaweicloud.crossplane.io
   names:
     categories:
     - crossplane

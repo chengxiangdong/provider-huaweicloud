@@ -26,78 +26,124 @@ type RoutesParameters struct {
 }
 
 type VPCInitParameters struct {
+
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
+	// Specifies supplementary information about the VPC. The value is a string of
+	// no more than 255 characters and cannot contain angle brackets (< or >).
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// Specifies the enterprise project ID of the VPC.
 	EnterpriseProjectID *string `json:"enterpriseProjectId,omitempty" tf:"enterprise_project_id,omitempty"`
 
+	// Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+	// of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// Specifies the region in which to create the VPC. If omitted, the
+	// provider-level region will be used. Changing this creates a new VPC resource.
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	// schema: Deprecated; use secondary_cidrs instead
 	SecondaryCidr *string `json:"secondaryCidr,omitempty" tf:"secondary_cidr,omitempty"`
 
+	// Specifies the secondary CIDR blocks of the VPC.
+	// Each VPC can have 5 secondary CIDR blocks.
 	// +listType=set
 	SecondaryCidrs []*string `json:"secondaryCidrs,omitempty" tf:"secondary_cidrs,omitempty"`
 
+	// Specifies the key/value pairs to associate with the VPC.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type VPCObservation struct {
+
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
+	// Specifies supplementary information about the VPC. The value is a string of
+	// no more than 255 characters and cannot contain angle brackets (< or >).
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// Specifies the enterprise project ID of the VPC.
 	EnterpriseProjectID *string `json:"enterpriseProjectId,omitempty" tf:"enterprise_project_id,omitempty"`
 
+	// The VPC ID in UUID format.
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+	// of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// Specifies the region in which to create the VPC. If omitted, the
+	// provider-level region will be used. Changing this creates a new VPC resource.
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
 	Routes []RoutesObservation `json:"routes,omitempty" tf:"routes,omitempty"`
 
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	// schema: Deprecated; use secondary_cidrs instead
 	SecondaryCidr *string `json:"secondaryCidr,omitempty" tf:"secondary_cidr,omitempty"`
 
+	// Specifies the secondary CIDR blocks of the VPC.
+	// Each VPC can have 5 secondary CIDR blocks.
 	// +listType=set
 	SecondaryCidrs []*string `json:"secondaryCidrs,omitempty" tf:"secondary_cidrs,omitempty"`
 
+	// The current status of the VPC. Possible values are as follows: CREATING, OK or ERROR.
 	Status *string `json:"status,omitempty" tf:"status,omitempty"`
 
+	// Specifies the key/value pairs to associate with the VPC.
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 type VPCParameters struct {
 
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	// +kubebuilder:validation:Optional
 	Cidr *string `json:"cidr,omitempty" tf:"cidr,omitempty"`
 
+	// Specifies supplementary information about the VPC. The value is a string of
+	// no more than 255 characters and cannot contain angle brackets (< or >).
 	// +kubebuilder:validation:Optional
 	Description *string `json:"description,omitempty" tf:"description,omitempty"`
 
+	// Specifies the enterprise project ID of the VPC.
 	// +kubebuilder:validation:Optional
 	EnterpriseProjectID *string `json:"enterpriseProjectId,omitempty" tf:"enterprise_project_id,omitempty"`
 
+	// Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+	// of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
+	// Specifies the region in which to create the VPC. If omitted, the
+	// provider-level region will be used. Changing this creates a new VPC resource.
 	// +kubebuilder:validation:Optional
 	Region *string `json:"region,omitempty" tf:"region,omitempty"`
 
+	// Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+	// 10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
 	// schema: Deprecated; use secondary_cidrs instead
 	// +kubebuilder:validation:Optional
 	SecondaryCidr *string `json:"secondaryCidr,omitempty" tf:"secondary_cidr,omitempty"`
 
+	// Specifies the secondary CIDR blocks of the VPC.
+	// Each VPC can have 5 secondary CIDR blocks.
 	// +kubebuilder:validation:Optional
 	// +listType=set
 	SecondaryCidrs []*string `json:"secondaryCidrs,omitempty" tf:"secondary_cidrs,omitempty"`
 
+	// Specifies the key/value pairs to associate with the VPC.
 	// +kubebuilder:validation:Optional
 	// +mapType=granular
 	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
@@ -130,7 +176,7 @@ type VPCStatus struct {
 // +kubebuilder:subresource:status
 // +kubebuilder:storageversion
 
-// VPC is the Schema for the VPCs API. <no value>
+// VPC is the Schema for the VPCs API. ""
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"

@@ -4,18 +4,18 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.14.0
-  name: resources.null.huaweicloud.upbound.io
+  name: vpcs.vpc.huaweicloud.crossplane.io
 spec:
-  group: null.huaweicloud.upbound.io
+  group: vpc.huaweicloud.crossplane.io
   names:
     categories:
     - crossplane
     - managed
     - huaweicloud
-    kind: Resource
-    listKind: ResourceList
-    plural: resources
-    singular: resource
+    kind: VPC
+    listKind: VPCList
+    plural: vpcs
+    singular: vpc
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,10 +34,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Resource is the Schema for the Resources API. The null_resource
-          resource implements the standard resource lifecycle but takes no further
-          action.hashicorp. The triggers argument allows specifying an arbitrary set
-          of values that, when changed, will cause the resource to be replaced.
+        description: VPC is the Schema for the VPCs API. ""
         properties:
           apiVersion:
             description: |-
@@ -57,7 +54,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: ResourceSpec defines the desired state of Resource
+            description: VPCSpec defines the desired state of VPC
             properties:
               deletionPolicy:
                 default: Delete
@@ -75,12 +72,48 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  triggers:
+                  cidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
+                    type: string
+                  description:
+                    description: |-
+                      Specifies supplementary information about the VPC. The value is a string of
+                      no more than 255 characters and cannot contain angle brackets (< or >).
+                    type: string
+                  enterpriseProjectId:
+                    description: Specifies the enterprise project ID of the VPC.
+                    type: string
+                  name:
+                    description: |-
+                      Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+                      of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
+                    type: string
+                  region:
+                    description: |-
+                      Specifies the region in which to create the VPC. If omitted, the
+                      provider-level region will be used. Changing this creates a new VPC resource.
+                    type: string
+                  secondaryCidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
+                      schema: Deprecated; use secondary_cidrs instead
+                    type: string
+                  secondaryCidrs:
+                    description: |-
+                      Specifies the secondary CIDR blocks of the VPC.
+                      Each VPC can have 5 secondary CIDR blocks.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
+                  tags:
                     additionalProperties:
                       type: string
-                    description: |-
-                      running any associated provisioners.
-                      A map of arbitrary strings that, when changed, will force the null resource to be replaced, re-running any associated provisioners.
+                    description: Specifies the key/value pairs to associate with the
+                      VPC.
                     type: object
                     x-kubernetes-map-type: granular
                 type: object
@@ -97,12 +130,48 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
-                  triggers:
+                  cidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
+                    type: string
+                  description:
+                    description: |-
+                      Specifies supplementary information about the VPC. The value is a string of
+                      no more than 255 characters and cannot contain angle brackets (< or >).
+                    type: string
+                  enterpriseProjectId:
+                    description: Specifies the enterprise project ID of the VPC.
+                    type: string
+                  name:
+                    description: |-
+                      Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+                      of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
+                    type: string
+                  region:
+                    description: |-
+                      Specifies the region in which to create the VPC. If omitted, the
+                      provider-level region will be used. Changing this creates a new VPC resource.
+                    type: string
+                  secondaryCidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
+                      schema: Deprecated; use secondary_cidrs instead
+                    type: string
+                  secondaryCidrs:
+                    description: |-
+                      Specifies the secondary CIDR blocks of the VPC.
+                      Each VPC can have 5 secondary CIDR blocks.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
+                  tags:
                     additionalProperties:
                       type: string
-                    description: |-
-                      running any associated provisioners.
-                      A map of arbitrary strings that, when changed, will force the null resource to be replaced, re-running any associated provisioners.
+                    description: Specifies the key/value pairs to associate with the
+                      VPC.
                     type: object
                     x-kubernetes-map-type: granular
                 type: object
@@ -273,21 +342,78 @@ spec:
             required:
             - forProvider
             type: object
+            x-kubernetes-validations:
+            - message: spec.forProvider.cidr is a required parameter
+              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.cidr)
+                || (has(self.initProvider) && has(self.initProvider.cidr))'
+            - message: spec.forProvider.name is a required parameter
+              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
+                || (has(self.initProvider) && has(self.initProvider.name))'
           status:
-            description: ResourceStatus defines the observed state of Resource.
+            description: VPCStatus defines the observed state of VPC.
             properties:
               atProvider:
                 properties:
-                  id:
-                    description: (String) This is set to a random value at create
-                      time.
+                  cidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
                     type: string
-                  triggers:
+                  description:
+                    description: |-
+                      Specifies supplementary information about the VPC. The value is a string of
+                      no more than 255 characters and cannot contain angle brackets (< or >).
+                    type: string
+                  enterpriseProjectId:
+                    description: Specifies the enterprise project ID of the VPC.
+                    type: string
+                  id:
+                    description: The VPC ID in UUID format.
+                    type: string
+                  name:
+                    description: |-
+                      Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
+                      of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
+                    type: string
+                  region:
+                    description: |-
+                      Specifies the region in which to create the VPC. If omitted, the
+                      provider-level region will be used. Changing this creates a new VPC resource.
+                    type: string
+                  routes:
+                    items:
+                      properties:
+                        destination:
+                          type: string
+                        nexthop:
+                          type: string
+                      type: object
+                    type: array
+                  secondaryCidr:
+                    description: |-
+                      Specifies the range of available subnets in the VPC. The value ranges from 10.0.0.0/8 to
+                      10.255.255.0/24, 172.16.0.0/12 to 172.31.255.0/24, or 192.168.0.0/16 to 192.168.255.0/24.
+                      schema: Deprecated; use secondary_cidrs instead
+                    type: string
+                  secondaryCidrs:
+                    description: |-
+                      Specifies the secondary CIDR blocks of the VPC.
+                      Each VPC can have 5 secondary CIDR blocks.
+                    items:
+                      type: string
+                    type: array
+                    x-kubernetes-list-type: set
+                  status:
+                    description: 'The current status of the VPC. Possible values are
+                      as follows: CREATING, OK or ERROR.'
+                    type: string
+                  tags:
                     additionalProperties:
                       type: string
-                    description: |-
-                      running any associated provisioners.
-                      A map of arbitrary strings that, when changed, will force the null resource to be replaced, re-running any associated provisioners.
+                    description: Specifies the key/value pairs to associate with the
+                      VPC.
                     type: object
                     x-kubernetes-map-type: granular
                 type: object
