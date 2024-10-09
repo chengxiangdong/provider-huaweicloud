@@ -7,7 +7,7 @@
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
-func (tr *Subnet) Hub() {}
+func (tr *obs_bucket_kind) Hub() {}
 
 // Hub marks this type as a conversion hub.
-func (tr *VPC) Hub() {}
+func (tr *obs_bucket_object) Hub() {}

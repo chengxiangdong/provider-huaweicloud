@@ -25,6 +25,11 @@ const (
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
 	errUnmarshalCredentials = "cannot unmarshal huaweicloud credentials as JSON"
+
+	// provider config
+	keyRegion    = "region"
+	keyAccessKey = "access_key"
+	keySecretKey = "secret_key"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which
@@ -63,10 +68,16 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		}
 
 		// Set credentials in Terraform provider configuration.
-		/*ps.Configuration = map[string]any{
-			"username": creds["username"],
-			"password": creds["password"],
-		}*/
+		ps.Configuration = map[string]interface{}{}
+		if v, ok := creds[keyRegion]; ok {
+			ps.Configuration[keyRegion] = v
+		}
+		if v, ok := creds[keyAccessKey]; ok {
+			ps.Configuration[keyAccessKey] = v
+		}
+		if v, ok := creds[keySecretKey]; ok {
+			ps.Configuration[keySecretKey] = v
+		}
 		return ps, nil
 	}
 }

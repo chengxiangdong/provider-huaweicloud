@@ -9,7 +9,11 @@ import (
 
 	"github.com/crossplane/upjet/pkg/controller"
 
+	secgroup "github.com/huaweicloud/provider-huaweicloud/internal/controller/networking/secgroup"
+	bucket "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucket"
+	bucketobject "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucketobject"
 	providerconfig "github.com/huaweicloud/provider-huaweicloud/internal/controller/providerconfig"
+	subnet "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/subnet"
 	vpc "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/vpc"
 )
 
@@ -17,7 +21,11 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		secgroup.Setup,
+		bucket.Setup,
+		bucketobject.Setup,
 		providerconfig.Setup,
+		subnet.Setup,
 		vpc.Setup,
 	} {
 		if err := setup(mgr, o); err != nil {
