@@ -10,17 +10,12 @@ import "github.com/crossplane/upjet/pkg/config"
 // provider.
 var ExternalNameConfigs = map[string]config.ExternalName{
 	// Import requires using a randomly generated ID from provider: nl-2e21sda
-	// cce
-	"huaweicloud_cce_cluster": config.IdentifierFromProvider,
-	"huaweicloud_cce_node":    config.IdentifierFromProvider,
-
-	// obs
-	"huaweicloud_obs_bucket":        config.IdentifierFromProvider,
-	"huaweicloud_obs_bucket_object": config.IdentifierFromProvider,
-
 	// vpc
 	"huaweicloud_vpc":        config.IdentifierFromProvider,
 	"huaweicloud_vpc_subnet": config.IdentifierFromProvider,
+	// obs
+	"huaweicloud_obs_bucket":        config.IdentifierFromProvider,
+	"huaweicloud_obs_bucket_object": config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the

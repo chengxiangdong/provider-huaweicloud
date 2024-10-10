@@ -23,7 +23,7 @@ func (mg *Subnet) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.VPCID),
-		Extract:      resource.ExtractResourceID(),
+		Extract:      resource.ExtractParamPath("id", true),
 		Reference:    mg.Spec.ForProvider.VPCIDRef,
 		Selector:     mg.Spec.ForProvider.VPCIDSelector,
 		To: reference.To{
@@ -39,7 +39,7 @@ func (mg *Subnet) ResolveReferences(ctx context.Context, c client.Reader) error 
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.VPCID),
-		Extract:      resource.ExtractResourceID(),
+		Extract:      resource.ExtractParamPath("id", true),
 		Reference:    mg.Spec.InitProvider.VPCIDRef,
 		Selector:     mg.Spec.InitProvider.VPCIDSelector,
 		To: reference.To{

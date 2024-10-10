@@ -8,7 +8,6 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
-	"github.com/huaweicloud/provider-huaweicloud/config/cce"
 	"github.com/huaweicloud/provider-huaweicloud/config/obs"
 
 	ujconfig "github.com/crossplane/upjet/pkg/config"
@@ -39,9 +38,8 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		cce.Configure,
-		obs.Configure,
 		vpc.Configure,
+		obs.Configure,
 	} {
 		configure(pc)
 	}
