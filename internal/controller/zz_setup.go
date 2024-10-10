@@ -12,12 +12,8 @@ import (
 	cluster "github.com/huaweicloud/provider-huaweicloud/internal/controller/cce/cluster"
 	node "github.com/huaweicloud/provider-huaweicloud/internal/controller/cce/node"
 	bucket "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucket"
-	bucketacl "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucketacl"
 	bucketobject "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucketobject"
-	bucketobjectacl "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucketobjectacl"
 	providerconfig "github.com/huaweicloud/provider-huaweicloud/internal/controller/providerconfig"
-	secgroup "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/secgroup"
-	secgrouprule "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/secgrouprule"
 	subnet "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/subnet"
 	vpc "github.com/huaweicloud/provider-huaweicloud/internal/controller/vpc/vpc"
 )
@@ -29,12 +25,8 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		cluster.Setup,
 		node.Setup,
 		bucket.Setup,
-		bucketacl.Setup,
 		bucketobject.Setup,
-		bucketobjectacl.Setup,
 		providerconfig.Setup,
-		secgroup.Setup,
-		secgrouprule.Setup,
 		subnet.Setup,
 		vpc.Setup,
 	} {

@@ -7,12 +7,6 @@
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
-func (tr *Secgroup) Hub() {}
-
-// Hub marks this type as a conversion hub.
-func (tr *SecgroupRule) Hub() {}
-
-// Hub marks this type as a conversion hub.
 func (tr *Subnet) Hub() {}
 
 // Hub marks this type as a conversion hub.

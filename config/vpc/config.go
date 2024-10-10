@@ -28,17 +28,4 @@ func Configure(p *config.Provider) {
 			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractResourceID()`,
 		}
 	})
-
-	p.AddResourceConfigurator("huaweicloud_networking_secgroup", func(r *config.Resource) {
-		r.ShortGroup = shortGroupVpc
-	})
-
-	p.AddResourceConfigurator("huaweicloud_networking_secgroup_rule", func(r *config.Resource) {
-		r.ShortGroup = shortGroupVpc
-
-		r.References["security_group_id "] = config.Reference{
-			TerraformName: "huaweicloud_networking_secgroup",
-			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractResourceID()`,
-		}
-	})
 }
