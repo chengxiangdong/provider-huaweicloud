@@ -10,7 +10,7 @@ HuaweiCloud API.
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://marketplace.upbound.io/providers/huaweicloud/provider-huaweicloud):
 ```
-up ctp provider install huaweicloud/provider-huaweicloud:v0.1.0
+up ctp provider install xpkg.upbound.io/hcs/provider-huaweicloud:v0.0.3
 ```
 
 Alternatively, you can use declarative installation:
@@ -21,7 +21,7 @@ kind: Provider
 metadata:
   name: provider-huaweicloud
 spec:
-  package: huaweicloud/provider-huaweicloud:v0.1.0
+  package: xpkg.upbound.io/hcs/provider-huaweicloud:v0.0.4
 EOF
 ```
 
