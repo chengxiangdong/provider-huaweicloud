@@ -15,12 +15,16 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"huaweicloud_cce_node":    config.IdentifierFromProvider,
 
 	// obs
-	"huaweicloud_obs_bucket":        config.IdentifierFromProvider,
-	"huaweicloud_obs_bucket_object": config.IdentifierFromProvider,
+	"huaweicloud_obs_bucket":            config.IdentifierFromProvider,
+	"huaweicloud_obs_bucket_acl":        config.IdentifierFromProvider,
+	"huaweicloud_obs_bucket_object":     config.IdentifierFromProvider,
+	"huaweicloud_obs_bucket_object_acl": config.IdentifierFromProvider,
 
 	// vpc
-	"huaweicloud_vpc":        config.IdentifierFromProvider,
-	"huaweicloud_vpc_subnet": config.IdentifierFromProvider,
+	"huaweicloud_vpc":                      config.IdentifierFromProvider,
+	"huaweicloud_vpc_subnet":               config.IdentifierFromProvider,
+	"huaweicloud_networking_secgroup":      config.IdentifierFromProvider,
+	"huaweicloud_networking_secgroup_rule": config.IdentifierFromProvider,
 }
 
 // ExternalNameConfigurations applies all external name configs listed in the
