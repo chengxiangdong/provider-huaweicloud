@@ -578,11 +578,7 @@ func (in *VPCInitParameters) DeepCopyInto(out *VPCInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Name != nil {
-		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
+	out.NameSecretRef = in.NameSecretRef
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -687,11 +683,6 @@ func (in *VPCObservation) DeepCopyInto(out *VPCObservation) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Name != nil {
-		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
@@ -771,11 +762,7 @@ func (in *VPCParameters) DeepCopyInto(out *VPCParameters) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Name != nil {
-		in, out := &in.Name, &out.Name
-		*out = new(string)
-		**out = **in
-	}
+	out.NameSecretRef = in.NameSecretRef
 	if in.Region != nil {
 		in, out := &in.Region, &out.Region
 		*out = new(string)
