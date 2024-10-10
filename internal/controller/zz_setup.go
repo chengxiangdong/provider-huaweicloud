@@ -9,6 +9,8 @@ import (
 
 	"github.com/crossplane/upjet/pkg/controller"
 
+	cluster "github.com/huaweicloud/provider-huaweicloud/internal/controller/cce/cluster"
+	node "github.com/huaweicloud/provider-huaweicloud/internal/controller/cce/node"
 	bucket "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucket"
 	bucketobject "github.com/huaweicloud/provider-huaweicloud/internal/controller/obs/bucketobject"
 	providerconfig "github.com/huaweicloud/provider-huaweicloud/internal/controller/providerconfig"
@@ -20,6 +22,8 @@ import (
 // the supplied manager.
 func Setup(mgr ctrl.Manager, o controller.Options) error {
 	for _, setup := range []func(ctrl.Manager, controller.Options) error{
+		cluster.Setup,
+		node.Setup,
 		bucket.Setup,
 		bucketobject.Setup,
 		providerconfig.Setup,
