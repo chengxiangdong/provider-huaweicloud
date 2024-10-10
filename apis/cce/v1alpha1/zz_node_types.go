@@ -402,14 +402,15 @@ type NodeInitParameters struct {
 
 	// Specifies the ID of the cluster.
 	// Changing this parameter will create a new resource.
-	// +crossplane:generate:reference:type=Cluster
+	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/cce/v1alpha1.Cluster
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	ClusterID *string `json:"clusterId,omitempty" tf:"cluster_id,omitempty"`
 
-	// Reference to a Cluster to populate clusterId.
+	// Reference to a Cluster in cce to populate clusterId.
 	// +kubebuilder:validation:Optional
 	ClusterIDRef *v1.Reference `json:"clusterIdRef,omitempty" tf:"-"`
 
-	// Selector for a Cluster to populate clusterId.
+	// Selector for a Cluster in cce to populate clusterId.
 	// +kubebuilder:validation:Optional
 	ClusterIDSelector *v1.Selector `json:"clusterIdSelector,omitempty" tf:"-"`
 
@@ -834,15 +835,16 @@ type NodeParameters struct {
 
 	// Specifies the ID of the cluster.
 	// Changing this parameter will create a new resource.
-	// +crossplane:generate:reference:type=Cluster
+	// +crossplane:generate:reference:type=github.com/huaweicloud/provider-huaweicloud/apis/cce/v1alpha1.Cluster
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	ClusterID *string `json:"clusterId,omitempty" tf:"cluster_id,omitempty"`
 
-	// Reference to a Cluster to populate clusterId.
+	// Reference to a Cluster in cce to populate clusterId.
 	// +kubebuilder:validation:Optional
 	ClusterIDRef *v1.Reference `json:"clusterIdRef,omitempty" tf:"-"`
 
-	// Selector for a Cluster to populate clusterId.
+	// Selector for a Cluster in cce to populate clusterId.
 	// +kubebuilder:validation:Optional
 	ClusterIDSelector *v1.Selector `json:"clusterIdSelector,omitempty" tf:"-"`
 

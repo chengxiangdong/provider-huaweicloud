@@ -8,14 +8,13 @@ const shortGroupCce = "cce"
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("huaweicloud_cce_cluster", func(r *config.Resource) {
 		r.ShortGroup = shortGroupCce
-		r.Kind = "Cluster"
 	})
 
 	p.AddResourceConfigurator("huaweicloud_cce_node", func(r *config.Resource) {
 		r.ShortGroup = shortGroupCce
-		r.Kind = "Node"
 		r.References["cluster_id"] = config.Reference{
-			Type: "Cluster",
+			TerraformName: "huaweicloud_cce_cluster",
+			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 		}
 	})
 }

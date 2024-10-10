@@ -9,6 +9,7 @@ package v1alpha1
 import (
 	"context"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
+	resource "github.com/crossplane/upjet/pkg/resource"
 	errors "github.com/pkg/errors"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
@@ -22,7 +23,7 @@ func (mg *Node) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.ClusterID),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("id", true),
 		Reference:    mg.Spec.ForProvider.ClusterIDRef,
 		Selector:     mg.Spec.ForProvider.ClusterIDSelector,
 		To: reference.To{
@@ -38,7 +39,7 @@ func (mg *Node) ResolveReferences(ctx context.Context, c client.Reader) error {
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.ClusterID),
-		Extract:      reference.ExternalName(),
+		Extract:      resource.ExtractParamPath("id", true),
 		Reference:    mg.Spec.InitProvider.ClusterIDRef,
 		Selector:     mg.Spec.InitProvider.ClusterIDSelector,
 		To: reference.To{
