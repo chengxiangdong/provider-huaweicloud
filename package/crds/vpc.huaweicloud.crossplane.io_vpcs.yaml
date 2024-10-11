@@ -85,11 +85,25 @@ spec:
                   enterpriseProjectId:
                     description: Specifies the enterprise project ID of the VPC.
                     type: string
-                  name:
+                  nameSecretRef:
                     description: |-
                       Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
                       of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
-                    type: string
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
                   region:
                     description: |-
                       Specifies the region in which to create the VPC. If omitted, the
@@ -143,11 +157,25 @@ spec:
                   enterpriseProjectId:
                     description: Specifies the enterprise project ID of the VPC.
                     type: string
-                  name:
+                  nameSecretRef:
                     description: |-
                       Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
                       of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
-                    type: string
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
                   region:
                     description: |-
                       Specifies the region in which to create the VPC. If omitted, the
@@ -174,6 +202,8 @@ spec:
                       VPC.
                     type: object
                     x-kubernetes-map-type: granular
+                required:
+                - nameSecretRef
                 type: object
               managementPolicies:
                 default:
@@ -347,10 +377,9 @@ spec:
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.cidr)
                 || (has(self.initProvider) && has(self.initProvider.cidr))'
-            - message: spec.forProvider.name is a required parameter
+            - message: spec.forProvider.nameSecretRef is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
-                || (has(self.initProvider) && has(self.initProvider.name))'
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.nameSecretRef)'
           status:
             description: VPCStatus defines the observed state of VPC.
             properties:
@@ -371,11 +400,6 @@ spec:
                     type: string
                   id:
                     description: The VPC ID in UUID format.
-                    type: string
-                  name:
-                    description: |-
-                      Specifies the name of the VPC. The name must be unique for a tenant. The value is a string
-                      of no more than 64 characters and can contain digits, letters, underscores (_), and hyphens (-).
                     type: string
                   region:
                     description: |-

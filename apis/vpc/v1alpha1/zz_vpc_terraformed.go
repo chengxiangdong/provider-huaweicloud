@@ -21,7 +21,7 @@ func (mg *VPC) GetTerraformResourceType() string {
 
 // GetConnectionDetailsMapping for this VPC
 func (tr *VPC) GetConnectionDetailsMapping() map[string]string {
-	return nil
+	return map[string]string{"name": "nameSecretRef"}
 }
 
 // GetObservation of this VPC
