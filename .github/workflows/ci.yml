@@ -78,12 +78,7 @@ jobs:
 
       - name: Find the Go Build Cache
         id: go
-        run: |
-          echo "cache=$(make go.cachedir)" >> $GITHUB_OUTPUT
-          user=${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR }}
-          pwd=${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}
-          echo "${user:0:1}_$(echo ${user:1})"
-          echo "${pwd:0:1}_$(echo ${pwd:1})"
+        run: echo "cache=$(make go.cachedir)" >> $GITHUB_OUTPUT
 
       - name: Cache the Go Build Cache
         uses: actions/cache@v4
@@ -325,8 +320,7 @@ jobs:
       - name: Publish Artifacts
         if: env.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR != ''
         env:
-          UP_USER: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_USR }}
-          UP_PASSWORD: ${{ secrets.UPBOUND_MARKETPLACE_PUSH_ROBOT_PSW }}
+          UP_TOKEN: ${{ secrets.XPKG_TOKEN }}
         run: |
           make up.login
           make publish BRANCH_NAME=${GITHUB_REF##*/}
